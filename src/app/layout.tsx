@@ -2,16 +2,77 @@
 
 import StoreProvider from "@/store/StoreProvider";
 import QueryProvider from "@/providers/QueryProvider";
-import Script from "next/script";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation"; // 1. IMPORTED: To watch for route transitions
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [jqueryLoaded, setJqueryLoaded] = useState(false);
-  const [slickLoaded, setSlickLoaded] = useState(false);
+  const [scriptsLoaded, setScriptsLoaded] = useState(false);
+  const pathname = usePathname(); // 2. CAPTURED: Tracks current path change
+
+  useEffect(() => {
+    // Clean up any previously appended script instances on path change
+    // to prevent piling up dozens of duplicate script nodes in the <head>
+    const existingCustomScripts = document.querySelectorAll(".dynamic-script");
+    existingCustomScripts.forEach((script) => script.remove());
+
+    // 1. Create and inject jQuery Core
+    const jqueryScript = document.createElement("script");
+    jqueryScript.src = "/js/jquery.min.js";
+    jqueryScript.className = "dynamic-script";
+    jqueryScript.async = false;
+
+    jqueryScript.onload = () => {
+      // 2. Map Window Bindings Safely
+      if (typeof window !== "undefined") {
+        (window as any).$ = (window as any).jQuery =
+          (window as any).jQuery || (window as any).$;
+      }
+
+      // 3. Chain dependent plugins
+      const bootstrapScript = document.createElement("script");
+      bootstrapScript.src =
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js";
+      bootstrapScript.className = "dynamic-script";
+      bootstrapScript.async = false;
+
+      const jqueryUiScript = document.createElement("script");
+      jqueryUiScript.src = "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js";
+      jqueryUiScript.className = "dynamic-script";
+      jqueryUiScript.async = false;
+
+      const slickScript = document.createElement("script");
+      slickScript.src = "/js/slick.min.js";
+      slickScript.className = "dynamic-script";
+      slickScript.async = false;
+
+      slickScript.onload = () => {
+        // 4. Run custom execution scripts every single time the route updates
+        const progressScript = document.createElement("script");
+        progressScript.src = "/js/circle-progress.min.js";
+        progressScript.className = "dynamic-script";
+        progressScript.type = "module";
+
+        const customScript = document.createElement("script");
+        customScript.src = `/js/custom.js?v=${Date.now()}`; // Added cache-buster to instantly bust hard browser caching
+        customScript.className = "dynamic-script";
+        customScript.type = "module";
+
+        document.head.appendChild(progressScript);
+        document.head.appendChild(customScript);
+        setScriptsLoaded(true);
+      };
+
+      document.head.appendChild(bootstrapScript);
+      document.head.appendChild(jqueryUiScript);
+      document.head.appendChild(slickScript);
+    };
+
+    document.head.appendChild(jqueryScript);
+  }, [pathname]); // 3. FIXED: Re-executes scripts cleanly whenever user switches pages!
 
   return (
     <html lang="en">
@@ -19,9 +80,8 @@ export default function RootLayout({
         <link rel="stylesheet" href="/styles/bootstrap.min.css" />
         <link rel="stylesheet" href="/styles/all.min.css" />
         <link rel="stylesheet" href="/styles/slick.css" />
-        <link rel="stylesheet" href="/styles/style.css" />
         <link rel="stylesheet" href="/styles/responsive.css" />
-        {/* Added jQuery UI styles for the datepicker */}
+        <link rel="stylesheet" href="/styles/style.css" />
         <link
           rel="stylesheet"
           href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
@@ -31,39 +91,6 @@ export default function RootLayout({
         <StoreProvider>
           <QueryProvider>{children}</QueryProvider>
         </StoreProvider>
-
-        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" />
-
-        {/* 1. Load base jQuery */}
-        <Script
-          src="/js/jquery.min.js"
-          strategy="beforeInteractive"
-          onLoad={() => setJqueryLoaded(true)}
-        />
-
-        {jqueryLoaded && (
-          <>
-            {/* 2. FIXED: Load jQuery UI dependency so .datepicker() works smoothly */}
-            <Script
-              src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-              strategy="lazyOnload"
-              onLoad={() => setSlickLoaded(true)}
-            />
-            <Script src="/js/slick.min.js" strategy="lazyOnload" />
-          </>
-        )}
-
-        {slickLoaded && (
-          <>
-            {/* 3. FIXED: Added type="module" fallback configurations to handle unexpected export syntaxes */}
-            <Script
-              src="/js/circle-progress.min.js"
-              strategy="lazyOnload"
-              type="module"
-            />
-            <Script src="/js/custom.js" strategy="lazyOnload" type="module" />
-          </>
-        )}
       </body>
     </html>
   );
