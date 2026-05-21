@@ -1,6 +1,13 @@
+"use client";
+
+
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const SidebarMenu = () => {
+
+  const router = useRouter()
   return (
     <div className="offcanvas offcanvas-end custom-home-right" tabIndex="-1" id="home-end-offcanvasRight"
     aria-labelledby="offcanvasRightLabel-logo">
@@ -14,14 +21,14 @@ const SidebarMenu = () => {
     </div>
     <div className="offcanvas-body custom-home-list">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="my-booking.html">My Bookings</a></li>
-        <li><a href="my-quotes.html">My Quotes</a></li>
-        <li><a href="my-payments.html">My Payments</a></li>
-        <li><a href="subscription.html">Subscription</a></li>
-        <li><a href="saved-address.html">Saved Address</a></li>
-        <li><a href="#logout-popup" data-bs-toggle="modal">Logout</a></li>
+        <li><Link href="/">Home</Link></li>
+        <li><Link href="/services">Services</Link></li>
+        <li><Link href="/booking">My Bookings</Link></li>
+        <li><Link href="/quotes">My Quotes</Link></li>
+        <li><Link href="/payment">My Payments</Link></li>
+        <li><Link href="/subscription">Subscription</Link></li>
+        <li><Link href="/savedadresss">Saved Address</Link></li>
+        <li><Link href="#logout-popup" data-bs-toggle="modal">Logout</Link></li>
       </ul>
     </div>
   </div>

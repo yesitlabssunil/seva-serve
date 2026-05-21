@@ -263,7 +263,7 @@ const Header = () => {
         data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" />
       <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
         style={{backgroundColor: "#991318"}}>
-        2
+        
         <span className="visually-hidden">unread messages</span>
       </span>
       <div className="dropdown-menu dropdown-menu-end">
