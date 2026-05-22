@@ -141,7 +141,7 @@ const OtpModal = () => {
                                             pattern="[0-9]*"
                                             oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                                             className="input-field-code-in inputs"
-                                            maxLength="1"
+                                            maxLength={1}
                                             onkeyPress="if (this.value.length == 1) return false;"
                                         />
                                         <input
@@ -151,7 +151,7 @@ const OtpModal = () => {
                                             pattern="[0-9]*"
                                             oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                                             className="input-field-code-in inputs"
-                                            maxLength="1"
+                                            maxLength={1}
                                             onkeyPress="if (this.value.length == 1) return false;"
                                         />
                                         <input

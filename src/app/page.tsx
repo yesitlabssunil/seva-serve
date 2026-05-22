@@ -7,21 +7,23 @@ import LoginModal from "@/components/modals/LoginModal";
 import OtpModal from "@/components/modals/OtpModal";
 import WelcomeModal from "@/components/modals/WelcomeModal";
 import AddCardModal from "@/components/modals/AddCardModal";
+import LocationModal from "@/components/modals/LocationModal";
 
 export default function Home() {
   return (
     <>
         {/* <LoginPage /> */}
-        <Header />
+        {/* <Header /> */}
         <Homepage />
-        <Footer />
+        {/* <Footer /> */}
 
 
         {/* Modal */}
-        <LoginModal />
+        {/* <LoginModal />
         <OtpModal />
         <WelcomeModal />
         <AddCardModal />
+        <LocationModal /> */}
     </>
      
   );

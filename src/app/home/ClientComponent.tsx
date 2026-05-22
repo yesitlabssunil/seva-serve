@@ -1,6 +1,10 @@
-import React from 'react'
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const ClientComponent = () => {
+  const router = useRouter();
   return (
     <main>
     <div className="container home-wraper">
@@ -127,18 +131,18 @@ const ClientComponent = () => {
                 <div className="browse-ctg-head">
                   <h2>Browse by Category</h2>
                   <p className="see-all">
-                    <a href="category-page.html"
+                    <Link href="/category"
                       >See All
                       <img
                         src="images/home/browse-category/right-arrow.svg"
                         alt="right-arrow"
-                    /></a>
+                    /></Link>
                   </p>
                 </div>
                 <div className="browse-inner">
                   <ul>
                     <li>
-                      <a href="service-details.html" className="wrp-img">
+                      <div onClick={() => router.push("/serviceDetails")} className="wrp-img" style={{cursor: "pointer"}}>
                         <div className="c-img">
                           <img
                             src="images/home/browse-category/1.svg"
@@ -146,7 +150,7 @@ const ClientComponent = () => {
                           />
                         </div>
                         <span>Plumbing</span>
-                      </a>
+                      </div>
                     </li>
                     <li>
                       <a href="service-details.html" className="wrp-img">
@@ -240,12 +244,12 @@ const ClientComponent = () => {
               <div className="browse-ctg-head">
                 <h2>Upcoming Bookings</h2>
                 <p className="see-all">
-                  <a href="my-booking.html"
+                  <Link href="/booking"
                     >See All
                     <img
                       src="images/home/browse-category/right-arrow.svg"
                       alt="right-arrow"
-                  /></a>
+                  /></Link>
                 </p>
               </div>
               <div className="upcoming-slider">
@@ -336,12 +340,12 @@ const ClientComponent = () => {
                 <div className="browse-ctg-head">
                   <h2>My Quotes</h2>
                   <p className="see-all">
-                    <a href="my-quotes.html"
+                    <Link href="/quotes"
                       >See All
                       <img
                         src="images/home/browse-category/right-arrow.svg"
                         alt="right-arrow"
-                    /></a>
+                    /></Link>
                   </p>
                 </div>
                 <div className="my-quotes-inner">
@@ -435,12 +439,12 @@ const ClientComponent = () => {
                 <div className="browse-ctg-head">
                   <h2>Popular Services</h2>
                   <p className="see-all">
-                    <a href="services.html"
+                    <Link href="/services"
                       >See All
                       <img
                         src="images/home/browse-category/right-arrow.svg"
                         alt="right-arrow"
-                    /></a>
+                    /></Link>
                   </p>
                 </div>
                 <div className="upcoming-slider">

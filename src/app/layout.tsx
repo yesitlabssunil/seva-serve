@@ -4,6 +4,16 @@ import StoreProvider from "@/store/StoreProvider";
 import QueryProvider from "@/providers/QueryProvider";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // 1. IMPORTED: To watch for route transitions
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
+import LoginModal from "@/components/modals/LoginModal";
+import OtpModal from "@/components/modals/OtpModal";
+import WelcomeModal from "@/components/modals/WelcomeModal";
+import LocationModal from "@/components/modals/LocationModal";
+import AddCardModal from "@/components/modals/AddCardModal";
+import AddAddressModal from "@/components/modals/AddAddressModal";
+import SevaServeWorkModal from "@/components/modals/SevaServeWorkModal";
+import LogOutModal from "@/components/modals/LogOutModal";
 
 export default function RootLayout({
   children,
@@ -89,7 +99,23 @@ export default function RootLayout({
       </head>
       <body>
         <StoreProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+           <Header />
+            {children}
+            <Footer />
+
+            {/* Global Modals */}
+            <LoginModal />
+            <OtpModal />
+            <WelcomeModal />
+            <LocationModal />
+            <AddCardModal />
+            <AddAddressModal />
+            <SevaServeWorkModal />
+            <LogOutModal />
+
+            
+            </QueryProvider>
         </StoreProvider>
       </body>
     </html>
