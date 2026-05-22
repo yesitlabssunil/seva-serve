@@ -14,6 +14,8 @@ import AddCardModal from "@/components/modals/AddCardModal";
 import AddAddressModal from "@/components/modals/AddAddressModal";
 import SevaServeWorkModal from "@/components/modals/SevaServeWorkModal";
 import LogOutModal from "@/components/modals/LogOutModal";
+import DeleteAccountModal from "@/components/modals/DeleteAccountModal";
+import DeleteMyAccountModal from "@/components/modals/DeleteMyAccountModal";
 
 export default function RootLayout({
   children,
@@ -113,6 +115,8 @@ export default function RootLayout({
             <AddAddressModal />
             <SevaServeWorkModal />
             <LogOutModal />
+            <DeleteAccountModal />
+            <DeleteMyAccountModal />
 
             
             </QueryProvider>

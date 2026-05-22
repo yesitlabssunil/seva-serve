@@ -1,11 +1,11 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/account-privacy/page": "app/account-privacy/page.js",
   "/booking/page": "app/booking/page.js",
+  "/delete-account/page": "app/delete-account/page.js",
   "/my-payment/page": "app/my-payment/page.js",
   "/page": "app/page.js",
   "/quotes/page": "app/quotes/page.js",
   "/saved-address/page": "app/saved-address/page.js",
-  "/services/page": "app/services/page.js",
-  "/subscription/page": "app/subscription/page.js",
-  "/summary-estimate/page": "app/summary-estimate/page.js"
+  "/services/page": "app/services/page.js"
 }

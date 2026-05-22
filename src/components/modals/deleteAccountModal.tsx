@@ -1,6 +1,16 @@
-import React from 'react'
+"use client";
 
-const deleteAccountModal = () => {
+import React from 'react';
+import {useRouter} from 'next/navigation';
+
+const DeleteAccountModal = () => {
+
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push("/delete-account");
+  }
+
   return (
     <div className="modal fade delete-account" id="deleteAccountModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div className="modal-dialog modal-dialog-centered">
@@ -12,7 +22,7 @@ const deleteAccountModal = () => {
         <div className="modal-body delete-account-bdy">
           <ul className="list-group list-group-flush">
 
-    <li className="list-group-item custom-item">
+    <li className="list-group-item custom-item" onClick={handleRedirect} style={{cursor: "pointer"}}>
       <span>I no longer use the app</span>
       <a href="#" className="arrow"><img src="images/inner-page/right-side-move.svg" alt="" /></a>
     </li>
@@ -46,4 +56,4 @@ const deleteAccountModal = () => {
   )
 }
 
-export default deleteAccountModal
+export default DeleteAccountModal
