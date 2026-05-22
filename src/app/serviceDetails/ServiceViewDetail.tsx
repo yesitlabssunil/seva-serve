@@ -1,6 +1,13 @@
 "use client";
 
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+
 export default function ServiceViewDetail (){
+  
+  const router = useRouter()
+
     return(
         <>
          <main>
@@ -13,7 +20,10 @@ export default function ServiceViewDetail (){
                   <div className="browse-wrp">
                     <div className="browse-ctg-head my-con-head">
                       <h2 className="sub-cate-page">
-                        <a href="index.html"
+                        <a    onClick={(e) => {
+                                e.preventDefault();
+                                router.back();
+                              }}
                           ><img src="images/home/left-arrow.svg" alt=""
                         /></a>
                         Plumbing
@@ -514,8 +524,8 @@ export default function ServiceViewDetail (){
                         </div>
                       </div>
                     </div>
-                    <a href="#" className="primary-cta"
-                      >Save & Add to Service Cart</a
+                    <Link href="/summary-estimate" className="primary-cta"
+                      >Save & Add to Service Cart</Link
                     >
                   </div>
                 </div>

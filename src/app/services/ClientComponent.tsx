@@ -24,7 +24,11 @@ export default function ClientComponent (){
                 <div className="browse-wrp">
                   <div className="browse-ctg-head my-con-head">
                     <h2 className="sub-cate-page">
-                      <a href="index.html"><img src="images/home/left-arrow.svg" alt=""/></a>
+                      <a     
+                          onClick={(e) => {
+                          e.preventDefault();
+                          router.back();
+                        }}><img src="images/home/left-arrow.svg" alt=""/></a>
                       Services
                     </h2>
                     <div className="your-location-top">

@@ -1,3 +1,12 @@
+import CancelBooking from "@/components/modals/bookingmodals/CancelBooking";
+import ConfirmCancelBooking from "@/components/modals/bookingmodals/ConfirmCancelBooking";
+import ContractorRequest from "@/components/modals/bookingmodals/ContractorRequest";
+import PaymentRemainingPopup from "@/components/modals/bookingmodals/PaymentRemainingPopup";
+import RateContractorPopup from "@/components/modals/bookingmodals/RateContractorPopup";
+import RescheduleRequestSubmit from "@/components/modals/bookingmodals/RescheduleRequestSubmit";
+import ServiceAccepted from "@/components/modals/bookingmodals/ServiceAccepted";
+import ServiceRejected from "@/components/modals/bookingmodals/ServiceRejected";
+import Link from "next/link";
 
 export default function Booking() {
     return (
@@ -115,7 +124,7 @@ export default function Booking() {
                                                                         <div className="service-quotes">
                                                                             <p className="service-cost">Amount :<span>$149</span></p>
                                                                             <div className="home-quotes-cta">
-                                                                                <a href="booking-traking1.html" className="reject-btn">View Details</a>
+                                                                                <Link href="/view-booking-detail" className="reject-btn">View Details</Link>
                                                                                 <button className="primary-cta rgt" data-bs-target="#contractorTime" data-bs-toggle="modal">
                                                                                     View Contractor Request
 
@@ -402,6 +411,16 @@ export default function Booking() {
                 </div>
 
             </main>
+
+            <ServiceAccepted/>
+            <ServiceRejected/>
+            <ContractorRequest/>
+            <RescheduleRequestSubmit/>
+            <PaymentRemainingPopup/>
+            <CancelBooking/>
+            <ConfirmCancelBooking/>
+            <RateContractorPopup/>
+
         </>
     )
 }

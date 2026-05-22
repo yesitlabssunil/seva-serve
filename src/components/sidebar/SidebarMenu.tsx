@@ -9,7 +9,7 @@ const SidebarMenu = () => {
 
   const router = useRouter()
   return (
-    <div className="offcanvas offcanvas-end custom-home-right" tabIndex="-1" id="home-end-offcanvasRight"
+    <div className="offcanvas offcanvas-end custom-home-right" tabIndex={-1} id="home-end-offcanvasRight"
     aria-labelledby="offcanvasRightLabel-logo">
     <div className="offcanvas-header">
       <h5 id="offcanvasRightLabel-logo">
@@ -25,9 +25,9 @@ const SidebarMenu = () => {
         <li><Link href="/services">Services</Link></li>
         <li><Link href="/booking">My Bookings</Link></li>
         <li><Link href="/quotes">My Quotes</Link></li>
-        <li><Link href="/payment">My Payments</Link></li>
+        <li><Link href="/my-payment">My Payments</Link></li>
         <li><Link href="/subscription">Subscription</Link></li>
-        <li><Link href="/savedadresss">Saved Address</Link></li>
+        <li><Link href="/saved-address">Saved Address</Link></li>
         <li><Link href="#logout-popup" data-bs-toggle="modal">Logout</Link></li>
       </ul>
     </div>

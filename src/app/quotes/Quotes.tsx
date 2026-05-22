@@ -1,5 +1,7 @@
 "use client";
 
+import ServiceAccepted from "@/components/modals/bookingmodals/ServiceAccepted";
+import ServiceRejected from "@/components/modals/bookingmodals/ServiceRejected";
 import { useRouter } from "next/navigation"
 
 export default function Quotes() {
@@ -136,9 +138,11 @@ export default function Quotes() {
                                                                     <p className="service-cost">Cost:<span>$149</span></p>
                                                                     <div className="home-quotes-cta">
                                                                         <button className="reject-btn" 
-                                                                        onClick={() => router.push("/quotesDetails")}
+                                                                        // onClick={() => router.push("/quotesDetails")}
                                                                         data-bs-target="#servicesRejected" data-bs-toggle="modal">Reject</button>
-                                                                        <a onClick={() => router.push("/serviceDetails")} className="primary-cta rgt">
+                                                                        <a  data-bs-target="#servicesAccepted" data-bs-toggle="modal"
+                                                                        //  onClick={() => router.push("/quotesDetail")}
+                                                                          className="primary-cta rgt">
                                                                             Accept
                                                                             <img src="images/home/right-img.svg" alt="" />
                                                                         </a>
@@ -326,6 +330,9 @@ export default function Quotes() {
                 </div>
 
             </main>
+
+            <ServiceAccepted/>
+            <ServiceRejected/>
         </>
     )
 }
