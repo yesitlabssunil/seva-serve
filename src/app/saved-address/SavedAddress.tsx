@@ -1,3 +1,6 @@
+import DeleteAddressModal from '@/components/modals/Address/DeleteAddressModal'
+import EditAddressModal from '@/components/modals/Address/EditAddressModal'
+import NewAddressModal from '@/components/modals/Address/NewAddressModal'
 import React from 'react'
 
 const SavedAddress = () => {
@@ -68,6 +71,11 @@ const SavedAddress = () => {
       </div>
     
     </main>
+
+
+    <NewAddressModal/>
+    <EditAddressModal/>
+    <DeleteAddressModal/>
     </>
   )
 }

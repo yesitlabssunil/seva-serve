@@ -1,5 +1,7 @@
+"use client";
 import CompletedService from '@/components/modals/bookingmodals/CompletedService'
 import ReviewAdditionalServices from '@/components/modals/bookingmodals/ReviewAdditionalServices'
+import Link from 'next/link'
 import React from 'react'
 
 const ViewBookingDetail = () => {
@@ -15,10 +17,10 @@ const ViewBookingDetail = () => {
                 <div className="browse-wrp">
                   <div className="browse-ctg-head my-con-head">
                     <h2 className="sub-cate-page">
-                      <a href="#"><img src="images/home/left-arrow.svg" alt=""/></a>
+                      <Link href="/booking"><img src="images/home/left-arrow.svg" alt=""/></Link>
                       Booking Tracking
                     </h2>
-                    <a href="" className="hel-cta"><i className="fa-regular fa-circle-question"></i> Help & Support</a>
+                    <Link href="/help-support" className="hel-cta"><i className="fa-regular fa-circle-question"></i> Help & Support</Link>
                   </div>
                   {/* <!-- SERVICE-STATUS-SECTION --> */}
                   <div className="service-status-wrp">

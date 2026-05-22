@@ -1,4 +1,5 @@
 import Link from "next/link";
+import  {topServices,featuredCategory,allServices} from "../../json/services.json"
 
 const Category = () => {
   return (
@@ -18,127 +19,20 @@ const Category = () => {
                 </div>
                 <div className="browse-inner">
                   <ul>
-                    <li>
-                      <a href="#" className="wrp-img">
+                    {featuredCategory.map((item) => (
+                    <li key={item?.id}  >
+                      <Link href="/serviceDetails" className="wrp-img">
                         <div className="c-img">
                           <img
-                            src="images/home/browse-category/1.svg"
+                            src={item?.icon||"images/home/browse-category/1.svg"}
                             alt=""
                           />
                         </div>
-                        <span>Plumbing</span>
-                      </a>
+                        <span>{item?.title}</span>
+                      </Link>
                     </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/2.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Repairing</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/3.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Painting</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/4.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Laundry</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/5.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Appliance</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/6.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Cleaning</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/7.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Car Wash</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/8.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>AC Services</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/8.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Furniture Work</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/8.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Plumbing</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/8.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Plumbing</span>
-                      </a>
-                    </li>
+                     ))}
+                  
                   </ul>
                 </div>
               </div>

@@ -1,6 +1,11 @@
+"use client";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const AddNewCard = () => {
+  const router =useRouter()
+
   return (
     <div className="container home-wraper my-profile">
       <section>
@@ -9,7 +14,7 @@ const AddNewCard = () => {
             <div className="col-lg-12">
               <div className="browse-wrp">
                 <div className="browse-ctg-head my-con-head">
-                  <h2 className="sub-cate-page"> <a href="#"><img src="images/home/left-arrow.svg" alt="" /></a>Add New Card</h2>
+                  <h2 className="sub-cate-page"> <Link href="/" onClick={()=>router.back()}><img src="images/home/left-arrow.svg" alt="" /></Link>Add New Card</h2>
                
                 </div>
                 <div className="card-wrp-surname">

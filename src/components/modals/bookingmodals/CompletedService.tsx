@@ -1,5 +1,6 @@
 import React from 'react'
 import CompletePayment from './CompletePayment'
+import Link from 'next/link'
 
 const CompletedService = () => {
   return (
@@ -16,7 +17,7 @@ const CompletedService = () => {
                   <h4>Service Completed</h4>
                   <p>The service is completed by your contractor successfully. <br/> Please approve!</p>
                   <a href="#completePayment" data-bs-toggle="modal" className="primary-cta requ-suc same">Approved</a>
-                  <a href="#" className="secondary-cta"> Help & Support</a>
+                  <Link href="/help-support" className="secondary-cta"> Help & Support</Link>
                 </div>
               </div>
               

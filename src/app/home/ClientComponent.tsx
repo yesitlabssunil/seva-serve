@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import {bookingCard} from "../../json/home.json"
+import { featuredCategory } from "../../json/services.json";
 import { useRouter } from "next/navigation";
 
 const ClientComponent = () => {
   const router = useRouter();
+  
   return (
     <main>
     <div className="container home-wraper">
@@ -13,86 +16,28 @@ const ClientComponent = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="hero-slider">
-                <div className="item-inner">
-                  <div className="inner-hero">
+                  {
+                    bookingCard.map((item) => (
+                 <div className="item-inner">
+                  <div className="inner-hero" key={item?.id}>
                     <div className="hero-img">
-                      <img src="images/home/hero-slider-img.svg" alt="" />
+                      <img src={item?.image||"images/home/hero-slider-img.svg"} alt="" />
                     </div>
                     <p>
                       Get 15% Off Your First <br />
                       SevaServe Booking Today
                     </p>
                     <div className="hero-btn">
-                      <button>
+                      <button onClick={()=>router.push("/serviceDetails")}>
                         Book Now <img src="images/home/right-arrow.svg" />
                       </button>
                     </div>
                   </div>
+                
                 </div>
-                <div className="item-inner">
-                  <div className="inner-hero">
-                    <div className="hero-img">
-                      <img src="images/home/hero-slider-img.svg" alt="" />
-                    </div>
-                    <p>
-                      Get 15% Off Your First <br />
-                      SevaServe Booking Today
-                    </p>
-                    <div className="hero-btn">
-                      <button>
-                        Book Now <img src="images/home/right-arrow.svg" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="item-inner">
-                  <div className="inner-hero">
-                    <div className="hero-img">
-                      <img src="images/home/hero-slider-img.svg" alt="" />
-                    </div>
-                    <p>
-                      Get 15% Off Your First <br />
-                      SevaServe Booking Today
-                    </p>
-                    <div className="hero-btn">
-                      <button>
-                        Book Now <img src="images/home/right-arrow.svg" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="item-inner">
-                  <div className="inner-hero">
-                    <div className="hero-img">
-                      <img src="images/home/hero-slider-img.svg" alt="" />
-                    </div>
-                    <p>
-                      Get 15% Off Your First <br />
-                      SevaServe Booking Today
-                    </p>
-                    <div className="hero-btn">
-                      <button>
-                        Book Now <img src="images/home/right-arrow.svg" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="item-inner">
-                  <div className="inner-hero">
-                    <div className="hero-img">
-                      <img src="images/home/hero-slider-img.svg" alt="" />
-                    </div>
-                    <p>
-                      Get 15% Off Your First <br />
-                      SevaServe Booking Today
-                    </p>
-                    <div className="hero-btn">
-                      <button>
-                        Book Now <img src="images/home/right-arrow.svg" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                  ))}
+               
+                
               </div>
             </div>
           </div>
@@ -141,94 +86,22 @@ const ClientComponent = () => {
                 </div>
                 <div className="browse-inner">
                   <ul>
-                    <li>
-                      <div onClick={() => router.push("/serviceDetails")} className="wrp-img" style={{cursor: "pointer"}}>
+                    {  featuredCategory.map((item)=>(
+                        <li key={item?.id}>
+                      <Link href="/serviceDetails" className="wrp-img">
                         <div className="c-img">
                           <img
-                            src="images/home/browse-category/1.svg"
+                            src={item?.icon||"images/home/browse-category/2.svg"}
                             alt=""
                           />
                         </div>
-                        <span>Plumbing</span>
-                      </div>
+                        <span>{item?.title||"Repairing"}</span>
+                      </Link>
                     </li>
-                    <li>
-                      <a href="service-details.html" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/2.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Repairing</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="service-details.html" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/3.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Painting</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="service-details.html" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/4.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Laundry</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="service-details.html" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/5.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Appliance</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="service-details.html" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/6.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Cleaning</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="service-details.html" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/7.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>Car Wash</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="service-details.html" className="wrp-img">
-                        <div className="c-img">
-                          <img
-                            src="images/home/browse-category/8.svg"
-                            alt=""
-                          />
-                        </div>
-                        <span>AC Services</span>
-                      </a>
-                    </li>
+                    ))
+                      
+                    }
+                    
                   </ul>
                 </div>
               </div>
@@ -253,7 +126,10 @@ const ClientComponent = () => {
                 </p>
               </div>
               <div className="upcoming-slider">
-                <div className="upcoming-my-slide">
+
+              { [0,1,2,3,4,5].map(()=>(
+
+              <div className="upcoming-my-slide">
                   <div className="upcoming-img">
                     <img src="images/home/home-slider/1.svg" alt="" />
                   </div>
@@ -271,60 +147,9 @@ const ClientComponent = () => {
                     </div>
                   </div>
                 </div>
-                <div className="upcoming-my-slide">
-                  <div className="upcoming-img">
-                    <img src="images/home/home-slider/2.svg" alt="" />
-                  </div>
-                  <div className="upcoming-data">
-                    <p className="up-text">Plumbing - Pipe Leakage Repair</p>
-                    <p className="up-date">Nov 15, 2025 • 10:00 AM</p>
-                    <div className="upcm-slider-btn">
-                      <button className="primary-cta upcm-btn">
-                        <img
-                          src="images/home/home-slider/re-sdl-btn.svg"
-                          alt=""
-                        />Reschedule
-                      </button>
-                      <button className="cnl">Cancel</button>
-                    </div>
-                  </div>
-                </div>
-                <div className="upcoming-my-slide">
-                  <div className="upcoming-img">
-                    <img src="images/home/home-slider/3.svg" alt="" />
-                  </div>
-                  <div className="upcoming-data">
-                    <p className="up-text">Plumbing - Pipe Leakage Repair</p>
-                    <p className="up-date">Nov 15, 2025 • 10:00 AM</p>
-                    <div className="upcm-slider-btn">
-                      <button className="primary-cta upcm-btn">
-                        <img
-                          src="images/home/home-slider/re-sdl-btn.svg"
-                          alt=""
-                        />Reschedule
-                      </button>
-                      <button className="cnl">Cancel</button>
-                    </div>
-                  </div>
-                </div>
-                <div className="upcoming-my-slide">
-                  <div className="upcoming-img">
-                    <img src="images/home/home-slider/4.svg" alt="" />
-                  </div>
-                  <div className="upcoming-data">
-                    <p className="up-text">Plumbing - Pipe Leakage Repair</p>
-                    <p className="up-date">Nov 15, 2025 • 10:00 AM</p>
-                    <div className="upcm-slider-btn">
-                      <button className="primary-cta upcm-btn">
-                        <img
-                          src="images/home/home-slider/re-sdl-btn.svg"
-                          alt=""
-                        />Reschedule
-                      </button>
-                      <button className="cnl">Cancel</button>
-                    </div>
-                  </div>
-                </div>
+               )) }
+
+               
               </div>
             </div>
           </div>
@@ -448,58 +273,29 @@ const ClientComponent = () => {
                   </p>
                 </div>
                 <div className="upcoming-slider">
-                  <div className="upcoming-my-slide">
-                    <div className="upcoming-img">
-                      <img src="images/home/home-slider/1.svg" alt="" />
-                    </div>
-                    <div className="upcoming-data">
-                      <p className="up-text">Plumbing - Pipe Leakage Repair</p>
-                      <div className="upcm-slider-btn pop-srv">
-                        <button className="primary-cta upcm-btn pop-srv-btn">
-                          Request Exact Quote
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="upcoming-my-slide">
-                    <div className="upcoming-img">
-                      <img src="images/home/home-slider/2.svg" alt="" />
-                    </div>
-                    <div className="upcoming-data">
-                      <p className="up-text">Plumbing - Pipe Leakage Repair</p>
-                      <div className="upcm-slider-btn pop-srv">
-                        <button className="primary-cta upcm-btn pop-srv-btn">
-                          Request Exact Quote
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="upcoming-my-slide">
-                    <div className="upcoming-img">
-                      <img src="images/home/home-slider/3.svg" alt="" />
-                    </div>
-                    <div className="upcoming-data">
-                      <p className="up-text">Plumbing - Pipe Leakage Repair</p>
-                      <div className="upcm-slider-btn pop-srv">
-                        <button className="primary-cta upcm-btn pop-srv-btn">
-                          Request Exact Quote
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="upcoming-my-slide">
-                    <div className="upcoming-img">
-                      <img src="images/home/home-slider/4.svg" alt="" />
-                    </div>
-                    <div className="upcoming-data">
-                      <p className="up-text">Plumbing - Pipe Leakage Repair</p>
-                      <div className="upcm-slider-btn pop-srv">
-                        <button className="primary-cta upcm-btn pop-srv-btn">
-                          Request Exact Quote
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                 {
+                      [0, 1, 2, 3, 4, 5].map((item) => (
+                        <div className="upcoming-my-slide" key={item}>
+                          <div className="upcoming-img">
+                            <img src="images/home/home-slider/1.svg" alt="" />
+                          </div>
+
+                          <div className="upcoming-data">
+                            <p className="up-text">
+                              Plumbing - Pipe Leakage Repair
+                            </p>
+
+                            <div className="upcm-slider-btn pop-srv">
+                              <button className="primary-cta upcm-btn pop-srv-btn" onClick={()=>router.push("/quotes")}>
+                                Request Exact Quote
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      ))
+                    }
+
+                
                 </div>
               </div>
             </div>

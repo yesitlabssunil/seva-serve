@@ -1,6 +1,10 @@
+"use client"
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const Payment = () => {
+
+    const router = useRouter()
   return (
     <div>
       <main>
@@ -95,7 +99,7 @@ const Payment = () => {
                                 </div>
                                 <div className="right-payments-body">
                                     <button className="secondary-cta">View Job</button>
-                                    <button className="primary-cta"><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
+                                    <button className="primary-cta"  onClick={()=>router.push("/checkout")}><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
                                 </div>
                             </div>
                             <div className="my-payments-body">
@@ -187,7 +191,7 @@ const Payment = () => {
                                 </div>
                                 <div className="right-payments-body">
                                     <button className="secondary-cta">View Job</button>
-                                    <button className="primary-cta"><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
+                                    <button className="primary-cta" onClick={()=>router.push("/checkout")}><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
                                 </div>
                             </div>
                             <div className="my-payments-body">
@@ -203,7 +207,7 @@ const Payment = () => {
                                 </div>
                                 <div className="right-payments-body">
                                     <button className="secondary-cta">View Job</button>
-                                    <button className="primary-cta"><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
+                                    <button className="primary-cta" onClick={()=>router.push("/checkout")}><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
                                 </div>
                             </div>
                             <div className="my-payments-body">
@@ -219,7 +223,7 @@ const Payment = () => {
                                 </div>
                                 <div className="right-payments-body">
                                     <button className="secondary-cta">View Job</button>
-                                    <button className="primary-cta"><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
+                                    <button className="primary-cta" onClick={()=>router.push("/checkout")} ><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
                                 </div>
                             </div>
                             </div>

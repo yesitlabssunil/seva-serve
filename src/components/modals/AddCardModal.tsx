@@ -1,13 +1,18 @@
+"use client"
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+
 import React from 'react'
 
 const AddCardModal = () => {
+    const router=useRouter()
     return (
         <div
             className="modal fade welcome"
             id="add-Your-Card"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
-            tabIndex="-1"
+            tabIndex={-1}
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
         >
@@ -28,13 +33,13 @@ const AddCardModal = () => {
                             <p>
                                 To complete your future bookings, please add your payment card.
                             </p>
-                            <a href="#" className="primary-cta" data-bs-dismiss="modal"
+                            <Link href="/add-new-card" onClick={()=>router.push("/add-new-card")} className="primary-cta" data-bs-dismiss="modal"
                             >Add Card
                                 <img
                                     src="images/modal/right-arrow-icon.svg"
                                     className="arrow"
                                     alt=""
-                                /></a>
+                                /></Link>
                         </div>
                     </div>
                 </div>

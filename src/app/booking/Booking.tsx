@@ -1,3 +1,5 @@
+"use client"
+
 import CancelBooking from "@/components/modals/bookingmodals/CancelBooking";
 import ConfirmCancelBooking from "@/components/modals/bookingmodals/ConfirmCancelBooking";
 import ContractorRequest from "@/components/modals/bookingmodals/ContractorRequest";
@@ -7,8 +9,11 @@ import RescheduleRequestSubmit from "@/components/modals/bookingmodals/Reschedul
 import ServiceAccepted from "@/components/modals/bookingmodals/ServiceAccepted";
 import ServiceRejected from "@/components/modals/bookingmodals/ServiceRejected";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Booking() {
+
+    const router = useRouter()
     return (
         <>
             <main>
@@ -20,7 +25,7 @@ export default function Booking() {
                                 <div className="col-lg-12">
                                     <div className="browse-wrp">
                                         <div className="browse-ctg-head my-con-head">
-                                            <h2 className="sub-cate-page"> <a href="#"><img src="images/home/left-arrow.svg" alt="" /></a>My Bookings </h2>
+                                            <h2 className="sub-cate-page" > <Link href="/home"><img src="images/home/left-arrow.svg" alt="" /></Link>My Bookings </h2>
                                             <div className="tab-left">
                                                 <ul className="nav nav-pills mb-3" id="customTabs-tab" role="tablist">
 
@@ -192,8 +197,7 @@ export default function Booking() {
                                                                             <div className="home-quotes-cta">
                                                                                 <button className="reject-btn" data-bs-target="#cancelBookingPopup" data-bs-toggle="modal">Cancel</button>
                                                                                 <button className="primary-cta rgt" data-bs-target="#rescheduleRequest" data-bs-toggle="modal">
-                                                                                    <img src="images/inner-page/clock-booking.svg" className="img-left" alt="" />  Reschedule
-
+                                                                                    <img src="images/inner-page/clock-booking.svg" className="img-left" alt="" />  Reschedule                                                                               
                                                                                 </button>
                                                                             </div>
                                                                         </div>
@@ -375,7 +379,7 @@ export default function Booking() {
                                                                         </div>
                                                                     </div>
                                                                     <p className="months">Nov 19, 2026 • 10:30 AM</p>
-                                                                    <p><p className="service-cost">Amount :<span>$0</span></p></p>
+                                                                    <p className="service-cost">Amount :<span>$0</span></p>
                                                                     <p className="sub-cate">Services Selected</p>
 
                                                                     <div className="service-list-type">

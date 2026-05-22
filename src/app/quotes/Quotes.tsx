@@ -49,7 +49,7 @@ export default function Quotes() {
                                                     </li>
 
                                                     <li className="nav-item" role="presentation">
-                                                        <button className="nav-link" onClick={() => router.push("/quotesDetail")}
+                                                        <button className="nav-link" 
                                                             id="customTabs-contact-tab"
                                                             data-bs-toggle="pill"
                                                             data-bs-target="#customTabs-contact"

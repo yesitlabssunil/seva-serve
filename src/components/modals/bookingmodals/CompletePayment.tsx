@@ -1,6 +1,12 @@
+"use client"
+
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+
 import React from 'react'
 
 const CompletePayment = () => {
+  const router = useRouter()
   return (
     <>
       <div className="modal fade header-bdr" id="completePayment" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -14,7 +20,7 @@ const CompletePayment = () => {
               <div className="modal-body">
                 <div className="welcome-seva-ser">
                   <p>You’ve paid <span>$50.00</span> The remaining balance is <span>$100.00</span>, which you can pay now.</p>
-                  <a href="" data-bs-toggle="modal" className="primary-cta requ-suc same">Pay Now</a>
+                  <Link href="/checkout" onClick={()=>router.push("/checkout")}  data-bs-toggle="modal" className="primary-cta requ-suc same">Pay Now</Link>
                 </div>
               </div>
               

@@ -5,8 +5,6 @@ import { title } from "process"
 import  {topServices,featuredCategory,allServices} from "../../json/services.json"
 import { useRouter } from "next/navigation";
 
-
-
 export default function ClientComponent (){ 
     
   const router = useRouter()
@@ -44,10 +42,10 @@ export default function ClientComponent (){
                   </div>
                   <div className="services-sec-wrp">
                     <h3>Top Services</h3>
-                    <div className="top-services-slider" onClick={() => router.push("/serviceDetails")}  >
+                    <div className="top-services-slider"   >
                      
                      { topServices?.map((item)=>(
-                        <div className="top-services-slider-item" key={item?.id}>
+                        <div className="top-services-slider-item" key={item?.id} onClick={() => router.push("/serviceDetails")}>
                         <div className="upcoming-my-slide">
                           <a href="#">
                             <div className="upcoming-img">
@@ -74,7 +72,7 @@ export default function ClientComponent (){
                         <div className="browse-inner">
                           <ul>
                          
-                            <li key={item?.id}>
+                            <li key={item?.id}  onClick={() => router.push("/serviceDetails")}>
                                 <a href="#" className="wrp-img">
                                 <div className="c-img">
                                     <img src={item?.icon} alt={item?.title} />
@@ -98,7 +96,7 @@ export default function ClientComponent (){
                     <div className="services-sec-in">
                       
                      { allServices.map((item) => (
-                      <div className="upcoming-my-slide" key={item?.id}>
+                      <div className="upcoming-my-slide" key={item?.id} onClick={() => router.push("/serviceDetails")}>
                         <a href="#">
                           <div className="upcoming-img">
                             <img src={item?.image} alt="" />

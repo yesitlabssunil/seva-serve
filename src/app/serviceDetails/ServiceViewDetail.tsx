@@ -535,12 +535,7 @@ export default function ServiceViewDetail (){
       
         </div>
   
-        <footer>
-          <div className="footer-text">
-            © 2026 SevaServe • Your privacy is our priority
-          </div>
-        </footer>
-  
+      
       </main>
         </>
     )
