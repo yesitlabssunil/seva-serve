@@ -14,7 +14,8 @@ import { useRouter } from "next/navigation";
 
 export default function Booking() {
 
-    const router = useRouter()
+  const router = useRouter()
+
     return (
         <>
             <main>
