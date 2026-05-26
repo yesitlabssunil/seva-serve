@@ -3,6 +3,7 @@
 import CancelBooking from "@/components/modals/bookingmodals/CancelBooking";
 import ConfirmCancelBooking from "@/components/modals/bookingmodals/ConfirmCancelBooking";
 import ContractorRequest from "@/components/modals/bookingmodals/ContractorRequest";
+import NewServiceRejectionModal from "@/components/modals/bookingmodals/NewServiceRejectionModal";
 import PaymentRemainingPopup from "@/components/modals/bookingmodals/PaymentRemainingPopup";
 import RateContractorPopup from "@/components/modals/bookingmodals/RateContractorPopup";
 import RescheduleRequestSubmit from "@/components/modals/bookingmodals/RescheduleRequestSubmit";
@@ -424,6 +425,7 @@ export default function Booking() {
             <CancelBooking/>
             <ConfirmCancelBooking/>
             <RateContractorPopup/>
+            <NewServiceRejectionModal />
 
         </>
     )

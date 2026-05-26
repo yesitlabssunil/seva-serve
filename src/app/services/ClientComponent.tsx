@@ -204,12 +204,7 @@ export default function ClientComponent (){
         </section>
      
       </div>
-   
-      <footer>
-        <div className="footer-text">
-          © 2026 SevaServe • Your privacy is our priority
-        </div>
-      </footer>
+
     
     </main>
         </>

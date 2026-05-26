@@ -47,7 +47,7 @@ const RateContractorPopup = () => {
               <textarea placeholder="Please share your feedback"></textarea>
               <div className="home-quotes-cta">
                 <button type="button" data-bs-dismiss="modal" className="reject-btn">Cancel</button>
-                <button type="button" data-bs-dismiss="modal" className="primary-cta rgt"> Rate <img
+                <button type="button" data-bs-target="#rateSevaServe" data-bs-toggle="modal" className="primary-cta rgt"> Rate <img
                     src="images/home/right-img.svg" alt=""/> </button>
               </div>
             </form>

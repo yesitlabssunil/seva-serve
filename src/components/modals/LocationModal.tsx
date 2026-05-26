@@ -56,7 +56,7 @@ const LocationModal = () => {
                       value="1"
                       name="saved-addresses"
                       hidden
-                      checked
+                      defaultChecked
                     />
                     <label htmlFor="address-1" className="saved-addresses-in">
                       <div className="saved-addresses-icon">

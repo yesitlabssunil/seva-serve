@@ -7,7 +7,7 @@ const WelcomeModal = () => {
             id="welcome-SevaServeModal"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
-            tabIndex="-1"
+            tabIndex={-1}
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
         >

@@ -7,7 +7,7 @@ const OtpModal = () => {
             id="login-screen-2"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
-            tabIndex="-1"
+            tabIndex={-1}
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
         >

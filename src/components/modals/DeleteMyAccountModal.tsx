@@ -2,7 +2,7 @@ import React from 'react'
 
 const DeleteMyAccountModal = () => {
   return (
-    <div className="modal fade delete-account" id="importantNoticeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div className="modal fade delete-account" id="importantNoticeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div className="modal-dialog modal-dialog-centered">
       <div className="modal-content">
         <div className="modal-header">

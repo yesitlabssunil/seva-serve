@@ -16,6 +16,8 @@ import SevaServeWorkModal from "@/components/modals/SevaServeWorkModal";
 import LogOutModal from "@/components/modals/LogOutModal";
 import DeleteAccountModal from "@/components/modals/DeleteAccountModal";
 import DeleteMyAccountModal from "@/components/modals/DeleteMyAccountModal";
+import NewServiceRejectionModal from "@/components/modals/bookingmodals/NewServiceRejectionModal";
+import RateSevaServe from "@/components/modals/bookingmodals/RateSevaServe";
 
 export default function RootLayout({
   children,
@@ -98,6 +100,11 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
         />
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
       </head>
       <body>
         <StoreProvider>
@@ -117,6 +124,8 @@ export default function RootLayout({
             <LogOutModal />
             <DeleteAccountModal />
             <DeleteMyAccountModal />
+            <NewServiceRejectionModal />
+            <RateSevaServe />
 
             
             </QueryProvider>

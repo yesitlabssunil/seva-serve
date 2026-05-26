@@ -1,5 +1,6 @@
 "use client";
 
+import NewServiceRejectionModal from "@/components/modals/bookingmodals/NewServiceRejectionModal";
 import ServiceAccepted from "@/components/modals/bookingmodals/ServiceAccepted";
 import ServiceRejected from "@/components/modals/bookingmodals/ServiceRejected";
 import { useRouter } from "next/navigation"
@@ -139,7 +140,7 @@ export default function Quotes() {
                                                                     <div className="home-quotes-cta">
                                                                         <button className="reject-btn" 
                                                                         // onClick={() => router.push("/quotesDetails")}
-                                                                        data-bs-target="#servicesRejected" data-bs-toggle="modal">Reject</button>
+                                                                        data-bs-target="#servicesRejection" data-bs-toggle="modal">Reject</button>
                                                                         <a  data-bs-target="#servicesAccepted" data-bs-toggle="modal"
                                                                         //  onClick={() => router.push("/quotesDetail")}
                                                                           className="primary-cta rgt">
@@ -333,6 +334,7 @@ export default function Quotes() {
 
             <ServiceAccepted/>
             <ServiceRejected/>
+            <NewServiceRejectionModal />
         </>
     )
 }
