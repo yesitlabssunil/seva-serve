@@ -1,0 +1,106 @@
+{"serviceDetails":{
+  "service": {
+    "category": "Plumbing",
+    "banner_title": "Expert Plumbing Services",
+    "banner_subtitle": "Fast • Reliable • Verified Contractors"
+  },
+  "sub_categories": [
+    {
+      "id": 1,
+      "name": "Repairs",
+      "active": false
+    },
+    {
+      "id": 2,
+      "name": "Installations",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Rough Plumbing",
+      "active": false
+    }
+  ],
+  "issue_type": {
+    "title": "Tap / Faucet Installation",
+    "description": "Fix or install faucets in kitchen, bathroom, or wash area.",
+    "icon": "tap-installation.png"
+  },
+  "issue_options": [
+    {
+      "id": 1,
+      "title": "Joint tap",
+      "image": "joint-tap.png",
+      "selected": false
+    },
+    {
+      "id": 2,
+      "title": "Tap handle broken",
+      "image": "tap-handle.png",
+      "selected": true,
+      "warning_message": "Upgrade your space with a new sink installation service from a trusted local plumber. Perfect for a fresh new upgrade!"
+    },
+    {
+      "id": 3,
+      "title": "Low water pressure",
+      "image": "water-pressure.png",
+      "selected": false
+    },
+    {
+      "id": 4,
+      "title": "Tap replacement",
+      "image": "tap-replacement.png",
+      "selected": false
+    }
+  ],
+  "problem_description": {
+    "label": "Problem Description",
+    "placeholder": "Describe the specific issue..."
+  },
+  "upload_section": {
+    "title": "Uploaded Image/Video",
+    "upload_text": "Drag and drop files here, or click to browse",
+    "uploaded_files": [
+      {
+        "id": 1,
+        "type": "image",
+        "file_name": "plumbing-1.jpg",
+        "preview": "plumbing-1.jpg"
+      },
+      {
+        "id": 2,
+        "type": "image",
+        "file_name": "plumbing-2.jpg",
+        "preview": "plumbing-2.jpg"
+      },
+      {
+        "id": 3,
+        "type": "image",
+        "file_name": "plumbing-3.jpg",
+        "preview": "plumbing-3.jpg"
+      },
+      {
+        "id": 4,
+        "type": "image",
+        "file_name": "plumbing-4.jpg",
+        "preview": "plumbing-4.jpg"
+      }
+    ]
+  },
+  "additional_services": [
+    {
+      "id": 1,
+      "title": "Shower Installation",
+      "description": "Install overhead, hand shower, or wall-mounted shower systems.",
+      "icon": "shower-installation.png",
+      "selected": false
+    },
+    {
+      "id": 2,
+      "title": "Sink Installation",
+      "description": "Install kitchen sink, bathroom sink, or utility wash basin.",
+      "icon": "sink-installation.png",
+      "selected": false
+    }
+  ]
+}}

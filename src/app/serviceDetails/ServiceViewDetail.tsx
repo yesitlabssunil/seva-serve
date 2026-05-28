@@ -2,9 +2,14 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import {serviceDetails} from "../../json/service-detail.json"
+import { useState } from "react";
 
 
 export default function ServiceViewDetail (){
+
+  const [serviceDetailss,setServiceDetails]=useState(serviceDetails)
+  console.log(serviceDetails)
   
   const router = useRouter()
 
@@ -26,7 +31,7 @@ export default function ServiceViewDetail (){
                               }}
                           ><img src="images/home/left-arrow.svg" alt=""
                         /></a>
-                        Plumbing
+                        {/* {serviceDetailss?.service} */}
                       </h2>
                       <div className="your-location-top">
                         <input
