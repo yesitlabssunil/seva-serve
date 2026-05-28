@@ -1,6 +1,38 @@
-import React from "react";
+"use client";
+
+import React, {useState} from "react";
 
 const AddAddressModal = () => {
+  const [selectedType, setSelectedType] = useState("Home");
+
+  const [formData, setFormData] = useState({
+    house: "",
+    floor: "",
+    area: "",
+    landmark: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = (e) => {
+
+    e.preventDefault();
+
+    const finalData = {
+      addressType: selectedType,
+      ...formData,
+    };
+
+    console.log(finalData);
+
+  };
+
+
   return (
     <div
       className="modal fade"
@@ -27,7 +59,7 @@ const AddAddressModal = () => {
 
               <h1>Add New Address</h1>
 
-              <form action="">
+              <form onSubmit={handleSubmit}>
 
                 <div className="your-location-top">
 
@@ -73,16 +105,31 @@ const AddAddressModal = () => {
 
                     <button
                       type="button"
-                      className="active"
+                      className={
+                        selectedType === "Home" ? "active" : ""
+                      }
+
+                      onClick={() => setSelectedType("Home")}
                     >
                       Home
                     </button>
 
-                    <button type="button">
+                    <button type="button"
+                    className={
+                      selectedType === "Office" ? "active" : ""
+                    }
+                    onClick={() => setSelectedType("Office")}
+                    >
                       Office
                     </button>
 
-                    <button type="button">
+                    <button type="button" 
+                    className={
+                      selectedType === "Other" ? "active" : ""
+                    }
+
+                    onClick={() => setSelectedType("Other")}
+                    >
                       Other
                     </button>
 
@@ -92,23 +139,34 @@ const AddAddressModal = () => {
 
                     <input
                       type="text"
+                      name="house"
                       placeholder="Flat/ House no/ Building name"
-                      defaultValue="8502"
+                      value={formData.house}
+                      onChange={handleChange}
                     />
 
                     <input
                       type="text"
+                      name="floor"
                       placeholder="Floor (Optional)"
+                      value={formData.floor}
+                      onChange={handleChange}
                     />
 
                     <input
                       type="text"
+                      name="area"
                       placeholder="Area/ Sector/ Locality"
+                      value={formData.area}
+                      onChange={handleChange}
                     />
 
                     <input
                       type="text"
+                      name="landmark"
                       placeholder="Nearby Landmark (Optional)"
+                      value={formData.landmark}
+                      onChange={handleChange}
                     />
 
                     <button

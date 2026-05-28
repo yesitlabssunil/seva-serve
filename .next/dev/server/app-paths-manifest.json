@@ -1,5 +1,13 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/account-privacy/page": "app/account-privacy/page.js",
+  "/add-new-card/page": "app/add-new-card/page.js",
+  "/booking/page": "app/booking/page.js",
+  "/category/page": "app/category/page.js",
   "/page": "app/page.js",
+  "/privacypolicy/page": "app/privacypolicy/page.js",
+  "/quotes/page": "app/quotes/page.js",
   "/serviceDetails/page": "app/serviceDetails/page.js",
-  "/subscription/page": "app/subscription/page.js"
+  "/services/page": "app/services/page.js",
+  "/termcondition/page": "app/termcondition/page.js"
 }

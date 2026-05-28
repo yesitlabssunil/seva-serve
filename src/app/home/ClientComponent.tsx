@@ -28,7 +28,7 @@ const ClientComponent = () => {
                       SevaServe Booking Today
                     </p>
                     <div className="hero-btn">
-                      <button onClick={()=>router.push("/serviceDetails")}>
+                      <button onClick={()=>router.push("/category")}>
                         Book Now <img src="images/home/right-arrow.svg" />
                       </button>
                     </div>

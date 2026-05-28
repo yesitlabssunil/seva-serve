@@ -1,6 +1,33 @@
+"use client";
+
 import React from 'react'
 
 const WelcomeModal = () => {
+
+    const handleExploreService = () => {
+        // SAVE LOGIN STATUS
+        localStorage.setItem("isLoggedIn", "true");
+
+        window.dispatchEvent(new Event("loginStatusChanged"));
+
+        // CLOSE MODAL
+        const modal = document.getElementById("welcome-SevaServeModal");
+
+        if (modal) {
+            const bootstrapModal = window.bootstrap?.Modal.getInstance(modal);
+
+            bootstrapModal?.hide();
+        }
+
+        const nextModal = document.getElementById("add-Your-Card");
+
+        if (nextModal) {
+            const nextInstance = new window.bootstrap.Modal(nextModal);
+
+                nextInstance.show();
+        }
+
+    }
     return (
         <div
             className="modal fade welcome"
@@ -26,7 +53,7 @@ const WelcomeModal = () => {
                             <img src="images/modal/welcome-img.svg" className="check" alt="" />
                             <h4>Welcome to SevaServe!</h4>
                             <p>Your trusted service partner is now in your pocket.</p>
-                            <a
+                            {/* <a
                                 href="#add-Your-Card"
                                 data-bs-toggle="modal"
                                 className="primary-cta"
@@ -35,7 +62,19 @@ const WelcomeModal = () => {
                                     src="images/modal/right-arrow-icon.svg"
                                     className="arrow"
                                     alt=""
-                                /></a>
+                                /></a> */}
+                            <button type="button"
+                                // href="#add-Your-Card"
+                                // data-bs-toggle="modal"
+                                onClick={handleExploreService}
+                                className="primary-cta"
+                                style={{ textAlign: "center", display: "flex", justifyContent: "center" }}
+                            >Explore Services
+                                <img
+                                    src="images/modal/right-arrow-icon.svg"
+                                    className="arrow"
+                                    alt=""
+                                /></button>
                         </div>
                     </div>
                 </div>

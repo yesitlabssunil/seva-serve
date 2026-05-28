@@ -19,7 +19,16 @@ export default function Quotes() {
                                 <div className="col-lg-12">
                                     <div className="browse-wrp">
                                         <div className="browse-ctg-head my-con-head">
-                                            <h2 className="sub-cate-page"> <a href="index.html"><img src="images/home/left-arrow.svg" alt="" /></a>My Quotes </h2>
+                                            <h2 className="sub-cate-page">
+                                                {/* <a href="index.html"><img src="images/home/left-arrow.svg" alt="" /></a> */}
+                                                <button
+                                                    type="button"
+                                                    onClick={() => router.back()}
+                                                    style={{ background: "none", border: "none", padding: 0 }}
+                                                >
+                                                    <img src="images/home/left-arrow.svg" alt="" />
+                                                </button>
+                                                My Quotes </h2>
                                             <div className="tab-left">
                                                 <ul className="nav nav-pills mb-3" id="customTabs-tab" role="tablist">
 
@@ -50,7 +59,7 @@ export default function Quotes() {
                                                     </li>
 
                                                     <li className="nav-item" role="presentation">
-                                                        <button className="nav-link" 
+                                                        <button className="nav-link"
                                                             id="customTabs-contact-tab"
                                                             data-bs-toggle="pill"
                                                             data-bs-target="#customTabs-contact"
@@ -138,12 +147,12 @@ export default function Quotes() {
                                                                 <div className="service-quotes">
                                                                     <p className="service-cost">Cost:<span>$149</span></p>
                                                                     <div className="home-quotes-cta">
-                                                                        <button className="reject-btn" 
-                                                                        // onClick={() => router.push("/quotesDetails")}
-                                                                        data-bs-target="#servicesRejection" data-bs-toggle="modal">Reject</button>
-                                                                        <a  data-bs-target="#servicesAccepted" data-bs-toggle="modal"
-                                                                        //  onClick={() => router.push("/quotesDetail")}
-                                                                          className="primary-cta rgt">
+                                                                        <button className="reject-btn"
+                                                                            // onClick={() => router.push("/quotesDetails")}
+                                                                            data-bs-target="#servicesRejection" data-bs-toggle="modal">Reject</button>
+                                                                        <a data-bs-target="#servicesAccepted" data-bs-toggle="modal"
+                                                                            //  onClick={() => router.push("/quotesDetail")}
+                                                                            className="primary-cta rgt">
                                                                             Accept
                                                                             <img src="images/home/right-img.svg" alt="" />
                                                                         </a>
@@ -332,8 +341,8 @@ export default function Quotes() {
 
             </main>
 
-            <ServiceAccepted/>
-            <ServiceRejected/>
+            <ServiceAccepted />
+            <ServiceRejected />
             <NewServiceRejectionModal />
         </>
     )

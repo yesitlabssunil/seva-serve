@@ -1,15 +1,18 @@
 "use client";
 
-import React, {useState} from 'react'
+import React, { useState } from 'react';
+import Link from 'next/link';
 
 const LoginModal = () => {
+    const [isEmailLogin, setIsEmailLogin] = useState(false);
+
     return (
         <div
             className="modal fade log-in-slid"
             id="login-screen-1"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
-            tabIndex="-1"
+            tabIndex={-1}
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
         >
@@ -130,12 +133,21 @@ const LoginModal = () => {
                             </div>
                             <div className="right-slider-pop">
                                 <h5>Let’s get you started</h5>
-                                <p>Enter your number to receive a verification code.</p>
+                                <p>
+                                    {isEmailLogin ? 
+                                    "Enter your email to receive a verification code." :
+                                    "Enter your number to receive a verification code."
+                                     }
+                                </p>
 
                                 <form>
                                     <div className="phone-number">
-                                        <input type="text" placeholder="Phone Number" />
-                                        <img src="images/modal/phone-icon.svg" alt="" />
+                                        <input type="text" 
+                                        placeholder={isEmailLogin ? "Email Address" : "Phone Number"} 
+                                        />
+                                        <img src={
+                                            isEmailLogin ? "images/modal/mail-icon.svg" : "images/modal/phone-icon.svg"
+                                        } alt="" />
                                     </div>
                                     <button
                                         type="button"
@@ -149,16 +161,30 @@ const LoginModal = () => {
 
                                 <div className="divider"></div>
 
-                                <div className="email-option">
-                                    <span className="icon"
-                                    ><img src="images/modal/mail-icon.svg" alt=""
-                                        /></span>
-                                    <span>Continue with mail</span>
+                                <div className="email-option" onClick={() => setIsEmailLogin(!isEmailLogin)}
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    <span className="icon">
+                                        <img src={
+                                            isEmailLogin ? "images/modal/phone-icon.svg" : "images/modal/mail-icon.svg"
+                                        } 
+                                        alt="" />
+                                    </span>
+                                    <span>
+                                        {
+                                            isEmailLogin ?
+                                                "Continue with phone" :
+                                                "Continue with mail"
+                                        }
+
+                                    </span>
                                 </div>
 
                                 <p className="terms">
                                     By continuing, you agree to our <br />
-                                    <a href="#">Terms & Privacy Policy</a>.
+                                    <Link href="/termcondition">Terms &</Link>
+                                    {/* & */}
+                                    <Link href="/privacypolicy"> Privacy Policy</Link>.
                                 </p>
                             </div>
                         </div>
