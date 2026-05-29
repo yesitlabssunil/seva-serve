@@ -1,6 +1,15 @@
+"use client";
 
+import React, {useState} from 'react';
 
 const DeleteAccount = () => {
+
+  const [feedback, setFeedback] = useState("");
+
+  const handleDeleteClick = () => {
+    console.log("Feedback:", feedback);
+  }
+
     return (
         <main>
         <div className="container home-wraper my-profile">
@@ -17,11 +26,16 @@ const DeleteAccount = () => {
                       <h3>I don’t want to use SevaServe anymore</h3>
                       <p>Do you have any feedback for us? We would love to hear from you ! (optional)</p>
                       <div className="delete-inner-text-area">
-                          <textarea rows={4} placeholder="Please share your feedback"></textarea>
+                          <textarea rows={4} placeholder="Please share your feedback" 
+                          value={feedback}
+                          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => 
+                            setFeedback(e.target.value)
+                          }
+                           />
                       </div>
   
                       <div className="delete-btn-rgt">
-                          <button data-bs-target="#importantNoticeModal" data-bs-toggle="modal" className="primary-cta">Delete Account</button>
+                          <button data-bs-target="#importantNoticeModal" data-bs-toggle="modal" className="primary-cta" onClick={handleDeleteClick}>Delete Account</button>
                       </div>
   
                     </div>

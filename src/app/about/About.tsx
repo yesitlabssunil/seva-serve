@@ -1,4 +1,7 @@
-import React from 'react'
+"use client";
+
+import React from 'react';
+import Link from 'next/link';
 
 const About = () => {
   return (
@@ -26,12 +29,17 @@ const About = () => {
                       We’re on a mission to simplify how India manages home services. With a user-friendly design, real-time tracking, secure digital payments, and verified service providers, SevaServe  ensures convenience, reliability, and safety every time you book.
                       Your comfort and trust are at the heart of everything we do because your home deserves the best care.</p>
                       <div className="about-swap-inner">
+                        <Link href="/privacypolicy">
                         <div className="inner-data">
-                          <span><img src="images/inner-page/policy-icon.svg" alt=""/>Privacy Policy</span> <a href="privacy-policy.html"><img src="images/inner-page/right-side-move.svg" alt=""/></a>
+                          <span style={{color: "black"}}><img src="images/inner-page/policy-icon.svg" alt=""/>Privacy Policy</span> <a href=""><img src="images/inner-page/right-side-move.svg" alt=""/></a>
                         </div>
+                        </Link>
+
+                        <Link href="/termcondition">
                         <div className="inner-data">
-                          <span><img src="images/inner-page/term-condition-icon.svg" alt=""/>Terms & Conditions</span> <a href="terms-conditions.html"><img src="images/inner-page/right-side-move.svg" alt=""/></a>
+                          <span style={{color: "black"}}><img src="images/inner-page/term-condition-icon.svg" alt=""/>Terms & Conditions</span> <a href=""><img src="images/inner-page/right-side-move.svg" alt=""/></a>
                         </div>
+                        </Link>
                       </div>
                   </div>
                 </div>

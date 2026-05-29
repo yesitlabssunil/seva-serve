@@ -1,24 +1,11 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/account-privacy/page": "app/account-privacy/page.js",
-<<<<<<< Updated upstream
-  "/add-new-card/page": "app/add-new-card/page.js",
   "/booking/page": "app/booking/page.js",
   "/category/page": "app/category/page.js",
+  "/choose-plan/page": "app/choose-plan/page.js",
+  "/delete-account/page": "app/delete-account/page.js",
+  "/help-support/page": "app/help-support/page.js",
   "/page": "app/page.js",
-  "/privacypolicy/page": "app/privacypolicy/page.js",
-  "/quotes/page": "app/quotes/page.js",
-  "/serviceDetails/page": "app/serviceDetails/page.js",
-  "/services/page": "app/services/page.js",
-  "/termcondition/page": "app/termcondition/page.js"
-=======
-  "/booking/page": "app/booking/page.js",
-  "/category/page": "app/category/page.js",
-  "/page": "app/page.js",
-  "/quotes/page": "app/quotes/page.js",
-  "/serviceDetails/page": "app/serviceDetails/page.js",
-  "/services/page": "app/services/page.js",
-  "/summary-estimate/page": "app/summary-estimate/page.js",
-  "/view-booking-detail/page": "app/view-booking-detail/page.js"
->>>>>>> Stashed changes
+  "/profile/page": "app/profile/page.js"
 }

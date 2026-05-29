@@ -30,6 +30,26 @@ const AddAddressModal = () => {
 
     console.log(finalData);
 
+    // RESET FORM
+    setFormData({
+      house: "",
+      floor: "",
+      area: "",
+      landmark: "",
+    })
+
+    // RESET ADDRESS TYPE
+    setSelectedType("Home");
+
+    // CLOSE MODAL
+    const modal = document.getElementById("add-address-popup");
+
+    if (modal) {
+      const bootstrapModal = window.bootstrap?.Modal.getInstance(modal);
+
+      bootstrapModal?.hide();
+    }
+
   };
 
 

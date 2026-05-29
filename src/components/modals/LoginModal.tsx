@@ -5,6 +5,70 @@ import Link from 'next/link';
 
 const LoginModal = () => {
     const [isEmailLogin, setIsEmailLogin] = useState(false);
+    const [inputValue, setInputValue] = useState("");
+    const [error, setError] = useState("");
+
+    const handleContinue = () => {
+        if (isEmailLogin) {
+            // EMAIL VALIDATION
+            const emailRegex =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!inputValue) {
+                setError("Email is required");
+                return;
+            }
+
+            if (!emailRegex.test(inputValue)) {
+                setError("Please enter valid email");
+                return;
+            }
+        } else {
+
+            // PHONE VALIDATION
+            const phoneRegex = /^[0-9]{10}$/;
+
+            if (!inputValue) {
+
+                setError("Phone number is required");
+                return;
+
+            }
+
+            if (!phoneRegex.test(inputValue)) {
+
+                setError(
+                    "Please enter valid 10 digit phone number"
+                );
+
+                return;
+
+            }
+        }
+
+        setError("");
+
+        const currentModal = document.getElementById("login-screen-1");
+
+        if (currentModal) {
+            const bootstrapModal = window.bootstrap?.Modal.getInstance(currentModal);
+
+            bootstrapModal?.hide();
+        }
+
+        const nextModal =
+            document.getElementById("login-screen-2");
+
+        if (nextModal) {
+
+            const nextInstance =
+                new window.bootstrap.Modal(nextModal);
+
+            nextInstance.show();
+
+        }
+
+    }
 
     return (
         <div
@@ -134,25 +198,55 @@ const LoginModal = () => {
                             <div className="right-slider-pop">
                                 <h5>Let’s get you started</h5>
                                 <p>
-                                    {isEmailLogin ? 
-                                    "Enter your email to receive a verification code." :
-                                    "Enter your number to receive a verification code."
-                                     }
+                                    {isEmailLogin ?
+                                        "Enter your email to receive a verification code." :
+                                        "Enter your number to receive a verification code."
+                                    }
                                 </p>
 
                                 <form>
                                     <div className="phone-number">
-                                        <input type="text" 
-                                        placeholder={isEmailLogin ? "Email Address" : "Phone Number"} 
+                                        <input type="text"
+                                            placeholder={isEmailLogin ? "Email Address" : "Phone Number"}
+                                            value={inputValue}
+                                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                                if (isEmailLogin) {
+
+                                                    // EMAIL INPUT
+                                                    setInputValue(e.target.value);
+
+                                                } else {
+
+                                                    // PHONE INPUT
+                                                    const onlyNumbers = e.target.value.replace(/\D/g, "");
+
+                                                    setInputValue(onlyNumbers);
+
+                                                }
+                                            }}
                                         />
                                         <img src={
                                             isEmailLogin ? "images/modal/mail-icon.svg" : "images/modal/phone-icon.svg"
                                         } alt="" />
                                     </div>
+
+                                    {
+                                        error && (
+                                            <p style={{
+                                                color: "red",
+                                                fontSize: "14px",
+                                                marginTop: "5px"
+                                            }}>
+                                                {error}
+                                            </p>
+                                        )
+                                    }
                                     <button
                                         type="button"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#login-screen-2"
+                                        // data-bs-toggle="modal"
+                                        // data-bs-target="#login-screen-2"
+
+                                        onClick={handleContinue}
                                         className="continue-btn"
                                     >
                                         Continue
@@ -161,14 +255,18 @@ const LoginModal = () => {
 
                                 <div className="divider"></div>
 
-                                <div className="email-option" onClick={() => setIsEmailLogin(!isEmailLogin)}
+                                <div className="email-option" onClick={() =>{ 
+                                setIsEmailLogin(!isEmailLogin);
+                                setInputValue("");
+                                setError("");
+                                }}
                                     style={{ cursor: "pointer" }}
                                 >
                                     <span className="icon">
                                         <img src={
                                             isEmailLogin ? "images/modal/phone-icon.svg" : "images/modal/mail-icon.svg"
-                                        } 
-                                        alt="" />
+                                        }
+                                            alt="" />
                                     </span>
                                     <span>
                                         {

@@ -1,6 +1,75 @@
-import React from 'react'
+"use client";
+
+import React, { useState } from 'react'
 
 const OtpModal = () => {
+
+    const [otp, setOtp] = useState(["", "", "", "", ""]);
+    const [error, setError] = useState("");
+
+    const handleChange = (
+        value: string,
+        index: number
+    ) => {
+        // ONLY NUMBERS
+        const numericValue = value.replace(/\D/g, "");
+
+        const updatedOtp = [...otp];
+
+        updatedOtp[index] = numericValue;
+
+        setOtp(updatedOtp);
+
+        // AUTO FOCUS NEXT INPUT
+        // if (numericValue && index < 4) {
+
+        //     const nextInput = document.getElementById(
+        //         `otp-${index + 1}`
+        //     );
+
+        //     nextInput?.focus();
+
+        // }
+
+
+    }
+
+
+    const handleVerify = () => {
+
+        const finalOtp = otp.join("");
+
+        // CHECK ALL 5 FILLED
+        if (finalOtp.length !== 5) {
+
+            setError("Please enter complete OTP");
+
+            return;
+
+        }
+
+        setError("");
+
+        console.log("OTP:", finalOtp);
+
+        const currentModal = document.getElementById("login-screen-2");
+
+        if (currentModal) {
+            const currentInstance = window.bootstrap?.Modal.getInstance(currentModal);
+
+            currentInstance?.hide();
+        }
+
+        const nextModal = document.getElementById("welcome-SevaServeModal");
+
+        if (nextModal) {
+            const nextInstance = new window.bootstrap.Modal(nextModal);
+
+            nextInstance.show();
+        }
+
+    };
+
     return (
         <div
             className="modal fade log-in-slid"
@@ -134,7 +203,33 @@ const OtpModal = () => {
                                 </p>
                                 <form>
                                     <div className="input-multigrp">
-                                        <input
+                                        {
+                                            otp?.map((digit, index) => (
+                                                <input
+                                                    key={index}
+                                                    id={`otp-${index}`}
+                                                    type="text"
+                                                    placeholder='-'
+                                                    className='input-field-code-in inputs'
+                                                    maxLength={1}
+                                                    value={digit}
+                                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                                        handleChange(e.target.value, index)
+                                                    }
+                                                />
+                                            ))
+                                        }
+                                        {/* <input
+                                            type="text"
+                                            placeholder="-"
+                                            inputMode="numeric"
+                                            pattern="[0-9]*"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                            className="input-field-code-in inputs"
+                                            maxLength={1}
+                                            onkeyPress="if (this.value.length == 1) return false;"
+                                        /> */}
+                                        {/* <input
                                             type="text"
                                             placeholder="-"
                                             inputMode="numeric"
@@ -151,44 +246,45 @@ const OtpModal = () => {
                                             pattern="[0-9]*"
                                             oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                                             className="input-field-code-in inputs"
+                                            maxLength="1"
+                                            onkeyPress="if (this.value.length == 1) return false;"
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="-"
+                                            inputMode="numeric"
+                                            pattern="[0-9]*"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                            className="input-field-code-in inputs"
+                                            maxLength="1"
+                                            onkeyPress="if (this.value.length == 1) return false;"
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="-"
+                                            inputMode="numeric"
+                                            pattern="[0-9]*"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                            className="input-field-code-in inputs"
                                             maxLength={1}
                                             onkeyPress="if (this.value.length == 1) return false;"
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            inputMode="numeric"
-                                            pattern="[0-9]*"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                                            className="input-field-code-in inputs"
-                                            maxLength="1"
-                                            onkeyPress="if (this.value.length == 1) return false;"
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            inputMode="numeric"
-                                            pattern="[0-9]*"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                                            className="input-field-code-in inputs"
-                                            maxLength="1"
-                                            onkeyPress="if (this.value.length == 1) return false;"
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            inputMode="numeric"
-                                            pattern="[0-9]*"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                                            className="input-field-code-in inputs"
-                                            maxLength="1"
-                                            onkeyPress="if (this.value.length == 1) return false;"
-                                        />
+                                        /> */}
                                     </div>
+
+                                    {
+                                        error && (
+                                            <p style={{ color: "red", marginTop: "10px" }}>
+                                                {error}
+                                            </p>
+                                        )
+                                    }
+
                                     <button
                                         type="button"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#welcome-SevaServeModal"
+                                        // data-bs-toggle="modal"
+                                        // data-bs-target="#welcome-SevaServeModal"
+
+                                        onClick={handleVerify}
                                         className="vry-fy-btn"
                                     >
                                         Verify & Continue
