@@ -10,11 +10,15 @@ import RescheduleRequestSubmit from "@/components/modals/bookingmodals/Reschedul
 import ServiceAccepted from "@/components/modals/bookingmodals/ServiceAccepted";
 import ServiceRejected from "@/components/modals/bookingmodals/ServiceRejected";
 import Link from "next/link";
+import {bookingData} from "../../json/booking.json"
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Booking() {
 
   const router = useRouter()
+
+  const [activeTab,setActiveTab]=useState<any>(bookingData?.upcoming)
 
     return (
         <>
@@ -31,7 +35,8 @@ export default function Booking() {
                                             <div className="tab-left">
                                                 <ul className="nav nav-pills mb-3" id="customTabs-tab" role="tablist">
 
-                                                    <li className="nav-item" role="presentation">
+                                                    {/* {["Upcoming", "Previous","Cancelled"].map((item,index)=>(
+                                                        <li className="nav-item" role="presentation" key={index}>
                                                         <button className="nav-link active"
                                                             id="customTabs-upcoming-tab"
                                                             data-bs-toggle="pill"
@@ -40,11 +45,30 @@ export default function Booking() {
                                                             role="tab"
                                                             aria-controls="customTabs-home"
                                                             aria-selected="true">
-                                                            Upcoming
+                                                          {item}
                                                         </button>
                                                     </li>
+                                                    ))
+                                                   } */}
 
-                                                    <li className="nav-item" role="presentation">
+                                                   {["Upcoming", "Previous", "Cancelled"].map((item, index) => (
+                                                <li className="nav-item" role="presentation" key={index}>
+                                                    <button
+                                                    className={`nav-link ${index === 0 ? "active" : ""}`}
+                                                    id={`customTabs-${item.toLowerCase()}-tab`}
+                                                    data-bs-toggle="pill"
+                                                    data-bs-target={`#customTabs-${item.toLowerCase()}`}
+                                                    type="button"
+                                                    role="tab"
+                                                    aria-controls={`customTabs-${item.toLowerCase()}`}
+                                                    aria-selected={index === 0 ? "true" : "false"}
+                                                    >
+                                                    {item}
+                                                    </button>
+                                                </li>
+                                                ))}
+
+                                                    {/* <li className="nav-item" role="presentation">
                                                         <button className="nav-link"
                                                             id="customTabs-previous-tab"
                                                             data-bs-toggle="pill"
@@ -68,7 +92,7 @@ export default function Booking() {
                                                             aria-selected="false">
                                                             Cancelled
                                                         </button>
-                                                    </li>
+                                                    </li> */}
 
                                                 </ul>
                                             </div>

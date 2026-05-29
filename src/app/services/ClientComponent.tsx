@@ -4,11 +4,46 @@
 import { title } from "process"
 import  {topServices,featuredCategory,allServices} from "../../json/services.json"
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function ClientComponent (){ 
     
   const router = useRouter()
 
+  const [filterTopServices,setFilteredServices]=useState<any[]>([])
+  const [filterfeaturedCategory,setFilteredfeaturedCategory]=useState<any[]>([])
+  const [filertallServices,setFilteredAllServices]=useState<any[]>([])
+
+  const [searchServices,setSearchServices]=useState<any>("")
+  
+
+useEffect(() => {
+  setFilteredServices(handlefilter(topServices));
+
+  setFilteredfeaturedCategory(
+    handlefilter(featuredCategory)
+  );
+
+  setFilteredAllServices(
+    handlefilter(allServices)
+  );
+}, [
+  searchServices,
+  topServices,
+  featuredCategory,
+  allServices,
+]);
+
+  const handlefilter = (data: any[]) => {
+  return data.filter((item) =>
+    item?.title
+      ?.toLowerCase()
+      .includes(searchServices.toLowerCase())
+  );
+   };
+
+  
     return (
         <>
         
@@ -30,7 +65,13 @@ export default function ClientComponent (){
                       Services
                     </h2>
                     <div className="your-location-top">
-                      <input type="text" placeholder="Search" className="top-srch"/>
+
+                          <input type="text"
+                            placeholder="Search"
+                            value={searchServices}
+                            onChange={(e) => setSearchServices(e.target.value)}
+                            className="top-srch" />
+
                       <select name="" id="">
                         <option value="0">All Category</option>
                         <option value="1">Plumbing</option>
@@ -44,10 +85,10 @@ export default function ClientComponent (){
                     <h3>Top Services</h3>
                     <div className="top-services-slider"   >
                      
-                     { topServices?.map((item)=>(
-                        <div className="top-services-slider-item" key={item?.id} onClick={() => router.push("/serviceDetails")}>
+                     { filterTopServices?.map((item)=>(
+                        <div className="top-services-slider-item" key={`${item.id}_top`} >
                         <div className="upcoming-my-slide">
-                          <a href="#">
+                          <Link href="/serviceDetails">
                             <div className="upcoming-img">
                               <img src="images/home/home-slider/1.svg" alt=""/>
                             </div>
@@ -55,7 +96,7 @@ export default function ClientComponent (){
                               <p className="up-text">{item?.title}</p>
                               <p className="up-date">{item?.description}</p>
                             </div>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                      )) }
@@ -67,18 +108,18 @@ export default function ClientComponent (){
                     <h3>Featured Category</h3>
                     <div className="featured-category-slider">
                     
-                         {featuredCategory.map((item) => (
-                      <div className="featured-category-slider-item">
+                         {filterfeaturedCategory.map((item) => (
+                      <div className="featured-category-slider-item" key={`${item.id}_featured`}>
                         <div className="browse-inner">
                           <ul>
                          
-                            <li key={item?.id}  onClick={() => router.push("/serviceDetails")}>
-                                <a href="#" className="wrp-img">
+                            <li >
+                                <Link href="/serviceDetails" className="wrp-img">
                                 <div className="c-img">
                                     <img src={item?.icon} alt={item?.title} />
                                 </div>
                                 <span>{item?.title}</span>
-                                </a>
+                                </Link>
                             </li>
                           
                           </ul>
@@ -95,9 +136,9 @@ export default function ClientComponent (){
                     <h3>All Services</h3>
                     <div className="services-sec-in">
                       
-                     { allServices.map((item) => (
-                      <div className="upcoming-my-slide" key={item?.id} onClick={() => router.push("/serviceDetails")}>
-                        <a href="#">
+                     { filertallServices.map((item) => (
+                      <div className="upcoming-my-slide" key={`${item.id}_all`}>
+                        <Link href="/serviceDetails">
                           <div className="upcoming-img">
                             <img src={item?.image} alt="" />
                           </div>
@@ -105,7 +146,7 @@ export default function ClientComponent (){
                             <p className="up-text">{item?.title}</p>
                             <p className="up-date">{item?.description}.</p>
                           </div>
-                        </a>
+                        </Link>
                       </div>))
                       }
 

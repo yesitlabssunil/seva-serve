@@ -4,11 +4,17 @@ import Link from "next/link";
 import {bookingCard} from "../../json/home.json"
 import { featuredCategory } from "../../json/services.json";
 import { useRouter } from "next/navigation";
+import DatePopup from "@/components/modals/bookingmodals/DatePopup";
+import RescheduleRequestSubmit from "@/components/modals/bookingmodals/RescheduleRequestSubmit";
+import CancelBooking from "@/components/modals/bookingmodals/CancelBooking";
+import ServiceRejected from "@/components/modals/bookingmodals/ServiceRejected";
+import ServiceAccepted from "@/components/modals/bookingmodals/ServiceAccepted";
 
 const ClientComponent = () => {
   const router = useRouter();
   
   return (
+    <>
     <main>
     <div className="container home-wraper">
       <section>
@@ -18,8 +24,8 @@ const ClientComponent = () => {
               <div className="hero-slider">
                   {
                     bookingCard.map((item) => (
-                 <div className="item-inner">
-                  <div className="inner-hero" key={item?.id}>
+                 <div className="item-inner" key={item?.id} >
+                  <div className="inner-hero" >
                     <div className="hero-img">
                       <img src={item?.image||"images/home/hero-slider-img.svg"} alt="" />
                     </div>
@@ -137,13 +143,13 @@ const ClientComponent = () => {
                     <p className="up-text">Plumbing - Pipe Leakage Repair</p>
                     <p className="up-date">Nov 15, 2025 • 10:00 AM</p>
                     <div className="upcm-slider-btn">
-                      <button className="primary-cta upcm-btn">
+                      <button className="primary-cta upcm-btn" data-bs-target="#select-date-time-popup" data-bs-toggle="modal" >
                         <img
                           src="images/home/home-slider/re-sdl-btn.svg"
                           alt=""
                         />Reschedule
                       </button>
-                      <button className="cnl">Cancel</button>
+                      <button className="cnl" data-bs-target="#cancelBookingPopup" data-bs-toggle="modal" >Cancel</button>
                     </div>
                   </div>
                 </div>
@@ -239,8 +245,8 @@ const ClientComponent = () => {
                       <div className="service-quotes">
                         <p className="service-cost">Cost:<span>$149</span></p>
                         <div className="home-quotes-cta">
-                          <button className="reject-btn">Reject</button>
-                          <button className="primary-cta rgt">
+                          <button className="reject-btn"   data-bs-target="#servicesRejection" data-bs-toggle="modal">Reject</button>
+                          <button className="primary-cta rgt" data-bs-target="#servicesAccepted" data-bs-toggle="modal">
                             Accept
                             <img src="images/home/right-img.svg" alt="" />
                           </button>
@@ -303,7 +309,13 @@ const ClientComponent = () => {
         </div>
       </section>
     </div>
-  </main>
+    </main>
+    <DatePopup/>
+    <RescheduleRequestSubmit/>
+    <ServiceRejected/>
+    <ServiceAccepted/>
+    <CancelBooking/>
+    </>
   )
 }
 

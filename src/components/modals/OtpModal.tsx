@@ -224,51 +224,112 @@ const OtpModal = () => {
                                             placeholder="-"
                                             inputMode="numeric"
                                             pattern="[0-9]*"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                              onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                                                                        e.currentTarget.value =
+                                                                        e.currentTarget.value.replace(/[^0-9]/g, "");
+                                                                    }}
+                                                                    onKeyPress={(e) => {
+                                                                        if (
+                                                                        (e.target as HTMLInputElement).value.length === 1
+                                                                        ) {
+                                                                        e.preventDefault();
+                                                                        }
+                                                                    }}
                                             className="input-field-code-in inputs"
                                             maxLength={1}
+<<<<<<< Updated upstream
                                             onkeyPress="if (this.value.length == 1) return false;"
                                         /> */}
                                         {/* <input
+=======
+                                            
+                                        />
+                                        <input
+>>>>>>> Stashed changes
                                             type="text"
                                             placeholder="-"
                                             inputMode="numeric"
                                             pattern="[0-9]*"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                              onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                                                    e.currentTarget.value =
+                                                    e.currentTarget.value.replace(/[^0-9]/g, "");
+                                                }}
+                                                onKeyPress={(e) => {
+                                                    if (
+                                                    (e.target as HTMLInputElement).value.length === 1
+                                                    ) {
+                                                    e.preventDefault();
+                                                    }
+                                                }}
                                             className="input-field-code-in inputs"
                                             maxLength={1}
-                                            onkeyPress="if (this.value.length == 1) return false;"
+                                            
                                         />
                                         <input
                                             type="text"
                                             placeholder="-"
                                             inputMode="numeric"
                                             pattern="[0-9]*"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                                            className="input-field-code-in inputs"
-                                            maxLength="1"
-                                            onkeyPress="if (this.value.length == 1) return false;"
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            inputMode="numeric"
-                                            pattern="[0-9]*"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                                            className="input-field-code-in inputs"
-                                            maxLength="1"
-                                            onkeyPress="if (this.value.length == 1) return false;"
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            inputMode="numeric"
-                                            pattern="[0-9]*"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                             onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                                                    e.currentTarget.value =
+                                                    e.currentTarget.value.replace(/[^0-9]/g, "");
+                                                }}
+                                                onKeyPress={(e) => {
+                                                    if (
+                                                    (e.target as HTMLInputElement).value.length === 1
+                                                    ) {
+                                                    e.preventDefault();
+                                                    }
+                                                }}
                                             className="input-field-code-in inputs"
                                             maxLength={1}
+                                            
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="-"
+                                            inputMode="numeric"
+                                            pattern="[0-9]*"
+                                             onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                                                e.currentTarget.value =
+                                                e.currentTarget.value.replace(/[^0-9]/g, "");
+                                            }}
+                                            onKeyPress={(e) => {
+                                                if (
+                                                (e.target as HTMLInputElement).value.length === 1
+                                                ) {
+                                                e.preventDefault();
+                                                }
+                                            }}
+                                            className="input-field-code-in inputs"
+                                            maxLength={1}
+                                            // onkeyPress="if (this.value.length == 1) return false;"
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="-"
+                                            inputMode="numeric"
+                                            pattern="[0-9]*"
+                                             onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                                                    e.currentTarget.value =
+                                                    e.currentTarget.value.replace(/[^0-9]/g, "");
+                                                }}
+                                                onKeyPress={(e) => {
+                                                    if (
+                                                    (e.target as HTMLInputElement).value.length === 1
+                                                    ) {
+                                                    e.preventDefault();
+                                                    }
+                                                }}
+                                            className="input-field-code-in inputs"
+                                            maxLength={1}
+<<<<<<< Updated upstream
                                             onkeyPress="if (this.value.length == 1) return false;"
                                         /> */}
+=======
+                                            // onkeyPress="if (this.value.length == 1) return false;"
+                                        />
+>>>>>>> Stashed changes
                                     </div>
 
                                     {

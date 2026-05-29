@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "/_not-found/page": "app/_not-found/page.js",
   "/account-privacy/page": "app/account-privacy/page.js",
   "/booking/page": "app/booking/page.js",
@@ -8,4 +9,8 @@
   "/help-support/page": "app/help-support/page.js",
   "/page": "app/page.js",
   "/profile/page": "app/profile/page.js"
+=======
+  "/booking/page": "app/booking/page.js",
+  "/page": "app/page.js"
+>>>>>>> Stashed changes
 }

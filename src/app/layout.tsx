@@ -3,7 +3,7 @@
 import StoreProvider from "@/store/StoreProvider";
 import QueryProvider from "@/providers/QueryProvider";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation"; // 1. IMPORTED: To watch for route transitions
+import { usePathname } from "next/navigation"; // 1. IMPORTED: To watch for route transitions 
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import LoginModal from "@/components/modals/LoginModal";
@@ -18,6 +18,7 @@ import DeleteAccountModal from "@/components/modals/DeleteAccountModal";
 import DeleteMyAccountModal from "@/components/modals/DeleteMyAccountModal";
 import NewServiceRejectionModal from "@/components/modals/bookingmodals/NewServiceRejectionModal";
 import RateSevaServe from "@/components/modals/bookingmodals/RateSevaServe";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -130,6 +131,8 @@ export default function RootLayout({
             
             </QueryProvider>
         </StoreProvider>
+        <Toaster position="top-right" />
+
       </body>
     </html>
   );
