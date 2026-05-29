@@ -237,15 +237,14 @@ const OtpModal = () => {
                                                                     }}
                                             className="input-field-code-in inputs"
                                             maxLength={1}
-<<<<<<< Updated upstream
+
                                             onkeyPress="if (this.value.length == 1) return false;"
                                         /> */}
                                         {/* <input
-=======
+
                                             
                                         />
-                                        <input
->>>>>>> Stashed changes
+                                        <input 
                                             type="text"
                                             placeholder="-"
                                             inputMode="numeric"
@@ -323,13 +322,11 @@ const OtpModal = () => {
                                                 }}
                                             className="input-field-code-in inputs"
                                             maxLength={1}
-<<<<<<< Updated upstream
+
                                             onkeyPress="if (this.value.length == 1) return false;"
                                         /> */}
-=======
-                                            // onkeyPress="if (this.value.length == 1) return false;"
-                                        />
->>>>>>> Stashed changes
+                                            {/* // onkeyPress="if (this.value.length == 1) return false;" */}
+                                        {/* /> */}
                                     </div>
 
                                     {

@@ -14,11 +14,11 @@ import AddCardModal from "@/components/modals/AddCardModal";
 import AddAddressModal from "@/components/modals/AddAddressModal";
 import SevaServeWorkModal from "@/components/modals/SevaServeWorkModal";
 import LogOutModal from "@/components/modals/LogOutModal";
-import DeleteAccountModal from "@/components/modals/DeleteAccountModal";
 import DeleteMyAccountModal from "@/components/modals/DeleteMyAccountModal";
 import NewServiceRejectionModal from "@/components/modals/bookingmodals/NewServiceRejectionModal";
 import RateSevaServe from "@/components/modals/bookingmodals/RateSevaServe";
 import { Toaster } from "react-hot-toast";
+import DeleteAccountModal from "@/components/modals/deleteAccountModal";
 
 export default function RootLayout({
   children,
