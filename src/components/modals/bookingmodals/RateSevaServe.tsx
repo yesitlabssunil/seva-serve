@@ -1,6 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 
-const RateSevaServe = () => {
+
+interface RateSevaServeProps {
+  feedback: string;
+}
+
+const RateSevaServe = ({ feedback }: RateSevaServeProps) => {
+
+  const handleCopy =  async (
+        e: React.MouseEvent<HTMLButtonElement>
+      ) => {
+        e.preventDefault();
+        try {
+          await navigator.clipboard.writeText(feedback);
+          toast.success("Feedback copied!");
+        } catch (error) {
+          toast.error("Failed to copy feedback");
+        }
+  };
+
+
+const handleGoogleReview = () => {
+  window.open(
+    "https://g.page/r/YOUR_GOOGLE_REVIEW_ID/review",
+    "_blank"
+  );
+};
+
+
   return (
     
     <div className="modal fade" id="rateSevaServe" data-bs-backdrop="static" tabIndex={-1}
@@ -14,13 +42,15 @@ const RateSevaServe = () => {
             <form action="">
               <div className="feedback-img">
                 <h2>Your Feedback</h2>
-             <button className="copy-btn">
+             <button className="copy-btn" onClick={handleCopy}>
                <img src="images/copy-icon.svg" alt="" />
              </button>
               </div>
-              <textarea placeholder="Please share your feedback" defaultValue ="Fast response and transparent pricing build trust quickly. Highlight real customer reviews to stand out."></textarea>
+              <textarea placeholder="Please share your feedback" defaultValue={feedback}></textarea>
               <div className="feedback-cta">
-                <button className="review-cta">Leave us a review on  <img src="images/goggle-img.svg" alt="" /></button>
+                <button className="review-cta" onClick={handleGoogleReview}>
+                  Leave us a review on  <img src="images/goggle-img.svg" alt="" />
+                </button>
               </div>
             </form>
           </div>

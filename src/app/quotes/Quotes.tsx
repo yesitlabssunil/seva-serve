@@ -3,11 +3,18 @@
 import NewServiceRejectionModal from "@/components/modals/bookingmodals/NewServiceRejectionModal";
 import ServiceAccepted from "@/components/modals/bookingmodals/ServiceAccepted";
 import ServiceRejected from "@/components/modals/bookingmodals/ServiceRejected";
+import {quotesData} from "../../json/quotes.json"
 import { useRouter } from "next/navigation"
+import { useState } from "react";
 
 export default function Quotes() {
 
     const router = useRouter()
+
+    const [activeTab, setActiveTab] = useState("received");
+    const [quotesDataAll, setQuotesData] = useState<any>(quotesData);
+
+     let quotes=quotesDataAll?.[activeTab] ||[]
     return (
         <>
             <main>
@@ -32,20 +39,21 @@ export default function Quotes() {
                                             <div className="tab-left">
                                                 <ul className="nav nav-pills mb-3" id="customTabs-tab" role="tablist">
 
-                                                    <li className="nav-item" role="presentation">
-                                                        <button className="nav-link active"
-                                                            id="customTabs-home-tab"
-                                                            data-bs-toggle="pill"
-                                                            data-bs-target="#customTabs-home"
+                                                  {["Received", "Requested", "Accepted"].map((item, index) => (
+                                                        <li className="nav-item" role="presentation" key={index}>
+                                                            <button
+                                                            className={`nav-link ${
+                                                                activeTab === item.toLowerCase() ? "active" : ""
+                                                            }`}
                                                             type="button"
-                                                            role="tab"
-                                                            aria-controls="customTabs-home"
-                                                            aria-selected="true">
-                                                            Received
-                                                        </button>
-                                                    </li>
+                                                            onClick={() => setActiveTab(item.toLowerCase())}
+                                                            >
+                                                            {item}
+                                                            </button>
+                                                        </li>
+                                                        ))}
 
-                                                    <li className="nav-item" role="presentation">
+                                                    {/* <li className="nav-item" role="presentation">
                                                         <button className="nav-link"
                                                             id="customTabs-profile-tab"
                                                             data-bs-toggle="pill"
@@ -69,13 +77,13 @@ export default function Quotes() {
                                                             aria-selected="false">
                                                             Accepted
                                                         </button>
-                                                    </li>
+                                                    </li> */}
 
                                                 </ul>
                                             </div>
                                         </div>
                                         <div className="mu-quotes-body">
-                                            <div className="tab-content" id="customTabs-tabContent">
+                                            {/* <div className="tab-content" id="customTabs-tabContent">
 
                                                 <div className="tab-pane fade show active"
                                                     id="customTabs-home"
@@ -328,6 +336,146 @@ export default function Quotes() {
                                                     </div>
                                                 </div>
 
+                                            </div> */}
+
+                                            <div className="tab-content" id="customTabs-tabContent">
+                                            {quotes?.map((item: any, index: number) => (
+                                                <div className="my-quotes-inner" key={index}>
+
+                                                <div className="add-user">
+                                                    <p className="left">#{item.quote_id}</p>
+
+                                                    {item.status && (
+                                                    <p className="right">{item.status}</p>
+                                                    )}
+                                                </div>
+
+                                                <div className="plumbing">
+                                                    <p className="plm">
+                                                    {item.category}
+                                                    <img src="images/home/up-right-arrow.svg" alt="" />
+                                                    </p>
+
+                                                    <p className="sub-cate">Sub categories Selected</p>
+
+                                                    <div className="service-list-type">
+
+                                                    {/* MAIN SERVICES */}
+                                                    <ol className="main-category">
+                                                        {item.services?.map((srv: any, i: number) => (
+                                                        <li key={i}>
+                                                            {srv.category}
+                                                            <ul>
+                                                            <li>
+                                                                {srv.service}
+                                                                <ul>
+                                                                <li>{srv.sub_service}</li>
+                                                                </ul>
+                                                            </li>
+                                                            </ul>
+                                                        </li>
+                                                        ))}
+                                                    </ol>
+
+                                                    {/* YOUR "MORE SERVICE" STATIC BLOCK (kept same style) */}
+                                                    <ol className="main-category">
+                                                        <li className="more-service">+ 1 more service</li>
+
+                                                        <div className="service-data">
+                                                        <li>
+                                                            {item.services?.[0]?.category}
+                                                            <ul>
+                                                            <li>
+                                                                {item.services?.[0]?.service}
+                                                                <ul>
+                                                                <li>{item.services?.[0]?.sub_service}</li>
+                                                                </ul>
+                                                            </li>
+                                                            </ul>
+                                                        </li>
+                                                        </div>
+
+                                                        <li className="less-service">Less service</li>
+                                                    </ol>
+
+                                                    {/* ADDITIONAL SERVICES */}
+                                                    <div className="additional-services">
+                                                        <p className="additional-text">
+                                                        Additional Services
+                                                        <img src="images/home/additional-service.svg" alt="" />
+                                                        </p>
+
+                                                        <ul className="service-list">
+                                                        {item.additional_services?.map((srv: string, i: number) => (
+                                                            <li key={i}>{srv}</li>
+                                                        ))}
+                                                        </ul>
+                                                    </div>
+
+                                                    <p>{item.description}</p>
+
+                                                    <div className="service-quotes">
+                                                        <p className="service-cost">
+                                                        Cost:<span>${item.cost}</span>
+                                                        </p>
+
+                                                        <div className="home-quotes-cta">
+
+                                                        {/* RECEIVED */}
+                                                        {activeTab === "received" && (
+                                                            <>
+                                                            <button
+                                                                className="reject-btn"
+                                                                data-bs-target="#servicesRejection"
+                                                                data-bs-toggle="modal"
+                                                            >
+                                                                Reject
+                                                            </button>
+
+                                                            <a
+                                                                className="primary-cta rgt"
+                                                                data-bs-target="#servicesAccepted"
+                                                                data-bs-toggle="modal"
+                                                            >
+                                                                Accept
+                                                                <img src="images/home/right-img.svg" alt="" />
+                                                            </a>
+                                                            </>
+                                                        )}
+
+                                                        {/* REQUESTED */}
+                                                        {activeTab === "requested" && (
+                                                            <>
+                                                            <button  className="reject-btn"
+                                                                data-bs-target="#servicesRejection"
+                                                                data-bs-toggle="modal">Reject</button>
+                                                                
+                                                            <button className="primary-cta rgt" onClick={() => router.push("/serviceDetails")}>
+                                                                Edit Req.
+                                                            </button>
+                                                            </>
+                                                        )}
+
+                                                        {/* ACCEPTED */}
+                                                        {activeTab === "accepted" && (
+                                                            <button className="primary-cta rgt">
+                                                            <img
+                                                                className="download"
+                                                                src="images/inner-page/download-down-arrow.svg"
+                                                                alt=""
+                                                            />
+                                                            Download PDF
+                                                            </button>
+                                                        )}
+
+                                                        </div>
+                                                    </div>
+
+                                                    </div>
+                                                </div>
+
+                                                </div>
+                                            ))}
                                             </div>
                                         </div>
                                     </div>
