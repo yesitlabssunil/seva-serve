@@ -111,11 +111,11 @@ const Header = () => {
                   <div className="top-ims-mrg">
                     <div className="top-img-pro">
                       <div className="progress-wrp">
-                        <circle-progress className="my-progress"
+                        {/* <circle-progress className="my-progress"
                           max="100"
                           value="60"
                           text-format="percent"
-                        ></circle-progress>
+                        ></circle-progress> */}
                         <img src="images/inner-page/user-profile.svg" alt="" />
                       </div>
                       <div className="roger-number">

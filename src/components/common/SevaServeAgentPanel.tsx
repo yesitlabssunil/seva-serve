@@ -68,7 +68,7 @@ const [editingMessageId, setEditingMessageId] = useState(null); // Track kaunsa 
   const [editingText, setEditingText] = useState('');
 
 
-const handleSendMessage = (e) => {
+const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // <-- Ye line page refresh rokti hai
     
     if (!inputValue.trim()) return;
@@ -80,7 +80,7 @@ const handleSendMessage = (e) => {
       text: inputValue
     };
 
-    setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setMessages((prevMessages: any[]) => [...prevMessages, userMessage]);
     setInputValue(''); // Input box clear karo
 
     // 2. Fake API Response (Demo ke liye - 1 second baad agent ka reply)
@@ -90,13 +90,13 @@ const handleSendMessage = (e) => {
         sender: 'agent',
         text: `I have noted your issue about: "${inputValue}". Connecting you with an expert...`
       };
-      setMessages((prevMessages) => [...prevMessages, agentReply]);
+      setMessages((prevMessages: any[]) => [...prevMessages, agentReply]);
     }, 1000);
   };
 
 
 
-  const sendMessage = (userText) => {
+  const sendMessage = (userText: string) => {
     // User message object
     const userMessage = {
       id: Date.now(),
@@ -104,11 +104,11 @@ const handleSendMessage = (e) => {
       text: userText
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages((prev: any[]) => [...prev, userMessage]);
 
     // Simulated API response (Yahan aapka backend trigger hoga)
     setTimeout(() => {
-      let botResponse = {
+      let botResponse:any = {
         id: Date.now() + 1,
         sender: 'agent',
         text: `It looks like you're facing an issue with "${userText}". To help you better, select a sub-category:`
@@ -119,30 +119,30 @@ const handleSendMessage = (e) => {
         botResponse.options = ['Bathroom Leakage', 'Tap Leakage', 'Toilet Leakage', 'Wall Seepage', 'Pipe Joint Leakage'];
       }
 
-      setMessages((prev) => [...prev, botResponse]);
+      setMessages((prev: any[]) => [...prev, botResponse]);
     }, 1000);
   };
 
 
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
     sendMessage(inputValue);
     setInputValue('');
   };
 
-  const startEdit = (msgId, currentText) => {
+  const startEdit = (msgId:any, currentText: string) => {
     setEditingMessageId(msgId);
     setEditingText(currentText);
   };
 
 
 
-  const saveEdit = (msgId) => {
+  const saveEdit = (msgId: any) => {
     if (!editingText.trim()) return;
 
-    setMessages((prev) =>
+    setMessages((prev: any[]) =>
       prev.map((msg) => (msg.id === msgId ? { ...msg, text: editingText } : msg))
     );
 
@@ -152,7 +152,7 @@ const handleSendMessage = (e) => {
   };
 
   return (
-    <div className="offcanvas offcanvas-end agent-off-canvas-wrp" tabIndex="-1" id="agent-msg-offcanvasRight"
+    <div className="offcanvas offcanvas-end agent-off-canvas-wrp" tabIndex={-1} id="agent-msg-offcanvasRight"
       aria-labelledby="offcanvasRightLabel">
       <div className="messages-inbox-in">
         <div className="offcanvas-header agent-header-tab">

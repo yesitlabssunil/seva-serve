@@ -3,15 +3,19 @@ import React from 'react'
 const NotificationDropdown = () => {
   return (
     <div className="icon bell-icon position-relative dropdown">
-    <img
-      src="images/header/bell-icon.svg"
-      alt="Logo"
-      className="logo dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-      data-bs-auto-close="outside"
-    />
+<div
+  className="dropdown-toggle"
+  role="button"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+  data-bs-auto-close="outside"
+>
+  <img
+    src="images/header/bell-icon.svg"
+    alt="Notification"
+    className="logo"
+  />
+</div>
     <span
       className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
       style={{backgroundColor: "#991318"}}
