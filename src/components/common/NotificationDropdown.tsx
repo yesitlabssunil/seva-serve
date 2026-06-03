@@ -13,15 +13,19 @@ const NotificationDropdown = () => {
 
   return (
     <div className="icon bell-icon position-relative dropdown">
-    <img
-      src="images/header/bell-icon.svg"
-      alt="Logo"
-      className="logo dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-      data-bs-auto-close="outside"
-    />
+    <button
+  type="button"
+  className="dropdown-toggle border-0 bg-transparent p-0"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+  data-bs-auto-close="outside"
+>
+  <img
+    src="images/header/bell-icon.svg"
+    alt="Logo"
+    className="logo"
+  />
+</button>
     <span
       className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
       style={{backgroundColor: "#991318"}}

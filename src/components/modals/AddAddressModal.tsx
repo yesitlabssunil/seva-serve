@@ -12,45 +12,40 @@ const AddAddressModal = () => {
     landmark: "",
   });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
 
-  const handleSubmit = (e) => {
+ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    e.preventDefault();
-
-    const finalData = {
-      addressType: selectedType,
-      ...formData,
-    };
-
-    console.log(finalData);
-
-    // RESET FORM
-    setFormData({
-      house: "",
-      floor: "",
-      area: "",
-      landmark: "",
-    })
-
-    // RESET ADDRESS TYPE
-    setSelectedType("Home");
-
-    // CLOSE MODAL
-    const modal = document.getElementById("add-address-popup");
-
-    if (modal) {
-      const bootstrapModal = window.bootstrap?.Modal.getInstance(modal);
-
-      bootstrapModal?.hide();
-    }
-
+  const finalData = {
+    addressType: selectedType,
+    ...formData,
   };
+
+  console.log(finalData);
+
+  setFormData({
+    house: "",
+    floor: "",
+    area: "",
+    landmark: "",
+  });
+
+  setSelectedType("Home");
+
+  const modal = document.getElementById("add-address-popup");
+
+  if (modal) {
+    const bootstrapModal = (window as any).bootstrap?.Modal.getInstance(modal);
+
+    bootstrapModal?.hide();
+  }
+};
 
 
   return (

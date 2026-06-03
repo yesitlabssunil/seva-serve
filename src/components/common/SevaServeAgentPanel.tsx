@@ -68,35 +68,62 @@ const [editingMessageId, setEditingMessageId] = useState(null); // Track kaunsa 
   const [editingText, setEditingText] = useState('');
 
 
-const handleSendMessage = (e) => {
-    e.preventDefault(); // <-- Ye line page refresh rokti hai
+// const handleSendMessage = (e) => {
+//     e.preventDefault(); // <-- Ye line page refresh rokti hai
     
-    if (!inputValue.trim()) return;
+//     if (!inputValue.trim()) return;
 
-    // 1. User ka message state mein add karo
-    const userMessage = {
-      id: Date.now(),
-      sender: 'user',
-      text: inputValue
-    };
+//     // 1. User ka message state mein add karo
+//     const userMessage = {
+//       id: Date.now(),
+//       sender: 'user',
+//       text: inputValue
+//     };
 
-    setMessages((prevMessages) => [...prevMessages, userMessage]);
-    setInputValue(''); // Input box clear karo
+//     setMessages((prevMessages) => [...prevMessages, userMessage]);
+//     setInputValue(''); // Input box clear karo
 
-    // 2. Fake API Response (Demo ke liye - 1 second baad agent ka reply)
-    setTimeout(() => {
-      const agentReply = {
-        id: Date.now() + 1,
-        sender: 'agent',
-        text: `I have noted your issue about: "${inputValue}". Connecting you with an expert...`
-      };
-      setMessages((prevMessages) => [...prevMessages, agentReply]);
-    }, 1000);
+//     // 2. Fake API Response (Demo ke liye - 1 second baad agent ka reply)
+//     setTimeout(() => {
+//       const agentReply = {
+//         id: Date.now() + 1,
+//         sender: 'agent',
+//         text: `I have noted your issue about: "${inputValue}". Connecting you with an expert...`
+//       };
+//       setMessages((prevMessages) => [...prevMessages, agentReply]);
+//     }, 1000);
+//   };
+
+
+
+const handleSendMessage = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const messageText = inputValue.trim();
+
+  if (!messageText) return;
+
+  const userMessage = {
+    id: Date.now(),
+    sender: "user",
+    text: messageText,
   };
 
+  setMessages((prevMessages:any) => [...prevMessages, userMessage]);
+  setInputValue("");
 
+  setTimeout(() => {
+    const agentReply = {
+      id: Date.now() + 1,
+      sender: "agent",
+      text: `I have noted your issue about: "${messageText}". Connecting you with an expert...`,
+    };
 
-  const sendMessage = (userText) => {
+    setMessages((prevMessages:any) => [...prevMessages, agentReply]);
+  }, 1000);
+};
+
+  const sendMessage = (userText:any) => {
     // User message object
     const userMessage = {
       id: Date.now(),
@@ -104,11 +131,11 @@ const handleSendMessage = (e) => {
       text: userText
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages((prev:any) => [...prev, userMessage]);
 
     // Simulated API response (Yahan aapka backend trigger hoga)
     setTimeout(() => {
-      let botResponse = {
+      let botResponse: any = {
         id: Date.now() + 1,
         sender: 'agent',
         text: `It looks like you're facing an issue with "${userText}". To help you better, select a sub-category:`
@@ -116,34 +143,34 @@ const handleSendMessage = (e) => {
 
       // Agar user ne plumbing choose kiya tha, to sub-categories options bhejo
       if (userText.toLowerCase().includes('plumbing') || userText.toLowerCase().includes('leakage')) {
-        botResponse.options = ['Bathroom Leakage', 'Tap Leakage', 'Toilet Leakage', 'Wall Seepage', 'Pipe Joint Leakage'];
+        botResponse.options =  ['Bathroom Leakage', 'Tap Leakage', 'Toilet Leakage', 'Wall Seepage', 'Pipe Joint Leakage'];
       }
 
-      setMessages((prev) => [...prev, botResponse]);
+      setMessages((prev:any) => [...prev, botResponse]);
     }, 1000);
   };
 
 
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
     sendMessage(inputValue);
     setInputValue('');
   };
 
-  const startEdit = (msgId, currentText) => {
+  const startEdit = (msgId:any, currentText:any) => {
     setEditingMessageId(msgId);
     setEditingText(currentText);
   };
 
 
 
-  const saveEdit = (msgId) => {
+  const saveEdit = (msgId:any) => {
     if (!editingText.trim()) return;
 
-    setMessages((prev) =>
-      prev.map((msg) => (msg.id === msgId ? { ...msg, text: editingText } : msg))
+    setMessages((prev:any) =>
+      prev.map((msg:any) => (msg.id === msgId ? { ...msg, text: editingText } : msg))
     );
 
     // Reset Edit State
@@ -152,7 +179,7 @@ const handleSendMessage = (e) => {
   };
 
   return (
-    <div className="offcanvas offcanvas-end agent-off-canvas-wrp" tabIndex="-1" id="agent-msg-offcanvasRight"
+    <div className="offcanvas offcanvas-end agent-off-canvas-wrp" tabIndex={-1} id="agent-msg-offcanvasRight"
       aria-labelledby="offcanvasRightLabel">
       <div className="messages-inbox-in">
         <div className="offcanvas-header agent-header-tab">

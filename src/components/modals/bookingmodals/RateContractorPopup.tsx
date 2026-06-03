@@ -157,7 +157,7 @@ const RateContractorPopup = () => {
           </div>
         </div>
       </div>
-      <RateSevaServe  feedback={feedback} />
+      <RateSevaServe  feedback="this is shivam" />
     </>
   );
 };
