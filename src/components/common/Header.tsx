@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import SidebarMenu from '../sidebar/SidebarMenu';
-import "js-circle-progress";
+// import "js-circle-progress";
 import Link from "next/link";
 import NotificationDropdown from './NotificationDropdown';
 import SevaServeAgentPanel from './SevaServeAgentPanel';
