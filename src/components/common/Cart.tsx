@@ -86,7 +86,7 @@ function Cart() {
               <img src="/images/header/vector-img.svg" alt="Logo" className="logo" />
             </div>
 
-            <div className="offcanvas offcanvas-end cart-unfill" tabIndex="-1" id="offcanvasRightCart"
+            <div className="offcanvas offcanvas-end cart-unfill" tabIndex={-1} id="offcanvasRightCart"
               aria-labelledby="offcanvasRightLabel">
               <div className="offcanvas-header">
                 <button type="button" className="btn-close my-cross" data-bs-dismiss="offcanvas" aria-label="Close">
