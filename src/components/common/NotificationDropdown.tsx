@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {notifications} from '../../json/notification.json'
 
 const NotificationDropdown = () => {
+
+
+  const [activeTab, setActiveTab] = useState<string>("All");
+  const [notificationsData, setNotificationsData] = useState<any>(notifications);
+  const tabs = ["All", "Offers", "Alerts"];
+
+
+  const notification=notificationsData?.[activeTab] || [];
+
   return (
     <div className="icon bell-icon position-relative dropdown">
     <img
@@ -23,19 +33,33 @@ const NotificationDropdown = () => {
       <div className="notification-list">
         <h1>Notifications</h1>
         <div className="top-fltr">
-          <button type="button" className="active">All</button>
-          <button type="button">Offers</button>
-          <button type="button">Alerts</button>
+      
+          {tabs.map((tab, index) => (
+            <button
+              key={index}
+              type="button"
+              className={activeTab === tab ? "active" : ""}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+
         </div>
-        <div className="notification-in">
-          <div className="notification-item">
+        <div className="notification-in" >
+       {notification.map((notif: any) => (
+
+          <div className="notification-item" key={notif.id}>
             <div className="notification-data">
-              <h3>Confirm & Pay Remaining Amount</h3>
-              <p>$149 is pending for AC Repair – Cooling Issue.</p>
+              <h3>{notif.title}</h3>
+              <p>{notif.message}</p>
             </div>
-            <span>Just Now</span>
+            <span>{notif.time}</span>
           </div>
-          <div className="notification-item">
+           ))}
+           </div>
+         {/* <div className="notification-in">
+           <div className="notification-item">
             <div className="notification-data">
               <h3>Contractor suggested a new time</h3>
               <p>
@@ -73,8 +97,9 @@ const NotificationDropdown = () => {
               </p>
             </div>
             <span>Yesterday</span>
-          </div>
-        </div>
+          </div> 
+          </div> */}
+        
       </div>
     </div>
   </div>

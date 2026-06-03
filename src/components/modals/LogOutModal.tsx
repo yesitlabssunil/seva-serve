@@ -1,6 +1,14 @@
 import React from 'react'
 
 const LogOutModal = () => {
+
+  const handleLogout = () => {
+    // Clear user data from local storage or cookies
+    localStorage.removeItem('isLoggedin'); // Example: remove user token
+    // Redirect to login page or home page
+    window.location.href = '/'; // Redirect to login page
+  }
+
   return (
     <div
     className="modal fade welcome"

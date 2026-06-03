@@ -1,9 +1,11 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
   "/booking/page": "app/booking/page.js",
   "/category/page": "app/category/page.js",
-  "/my-payment/page": "app/my-payment/page.js",
   "/page": "app/page.js",
+  "/profile/page": "app/profile/page.js",
   "/quotes/page": "app/quotes/page.js",
-  "/serviceDetails/page": "app/serviceDetails/page.js"
+  "/saved-address/page": "app/saved-address/page.js",
+  "/subscription/page": "app/subscription/page.js"
 }

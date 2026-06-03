@@ -1188,6 +1188,7 @@ a.side-move img {
   border-radius: 50%;
   outline: none;
   box-shadow: none;
+  z-index: 99999;
 }
 li.list-group-item.custom-item span.arrow img {
   width: 20px;
