@@ -1,11 +1,22 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/about/page": "app/about/page.js",
+  "/account-privacy/page": "app/account-privacy/page.js",
+  "/add-new-card/page": "app/add-new-card/page.js",
   "/booking/page": "app/booking/page.js",
   "/category/page": "app/category/page.js",
+  "/checkout/page": "app/checkout/page.js",
+  "/choose-plan/page": "app/choose-plan/page.js",
+  "/delete-account/page": "app/delete-account/page.js",
+  "/help-support/page": "app/help-support/page.js",
+  "/home/page": "app/home/page.js",
+  "/my-payment/page": "app/my-payment/page.js",
   "/page": "app/page.js",
-  "/profile/page": "app/profile/page.js",
+  "/payment-method/page": "app/payment-method/page.js",
+  "/payment/page": "app/payment/page.js",
   "/quotes/page": "app/quotes/page.js",
   "/saved-address/page": "app/saved-address/page.js",
-  "/subscription/page": "app/subscription/page.js"
+  "/serviceDetails/page": "app/serviceDetails/page.js",
+  "/services/page": "app/services/page.js",
+  "/subscription/page": "app/subscription/page.js",
+  "/view-booking-detail/page": "app/view-booking-detail/page.js"
 }

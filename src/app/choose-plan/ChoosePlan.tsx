@@ -1,5 +1,7 @@
 "use client";
 
+
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 const ChoosePlan = () => {
@@ -35,6 +37,9 @@ const ChoosePlan = () => {
     },
   ];
 
+
+  const router =useRouter()
+  
   const couponCode = "SEVA200FF";
 
   const [selectedPlan, setSelectedPlan] = useState<number | null>(2);
@@ -43,6 +48,7 @@ const ChoosePlan = () => {
 
   const handleSubscribe = (price: string) => {
     console.log("Selected Price:", price);
+    router.push('/payment');
   }
 
   // COPY COUPON

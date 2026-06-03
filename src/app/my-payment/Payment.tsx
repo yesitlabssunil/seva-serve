@@ -83,7 +83,7 @@ const Payment = () => {
                                 </div>
                                 </div>
                                 <div className="right-payments-body">
-                                    <button className="secondary-cta">View Job</button>
+                                   <button className="secondary-cta"onClick={()=>router.push("/checkout")} >View Job</button>
                                 </div>
                             </div>
                             <div className="my-payments-body">
@@ -98,7 +98,7 @@ const Payment = () => {
                                 </div>
                                 </div>
                                 <div className="right-payments-body">
-                                    <button className="secondary-cta">View Job</button>
+                                   <button className="secondary-cta"onClick={()=>router.push("/checkout")} >View Job</button>
                                     <button className="primary-cta"  onClick={()=>router.push("/checkout")}><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ const Payment = () => {
                                 </div>
                                 </div>
                                 <div className="right-payments-body">
-                                    <button className="secondary-cta">View Job</button>
+                                   <button className="secondary-cta"onClick={()=>router.push("/checkout")} >View Job</button>
                                 </div>
                             </div>
                             </div>
@@ -137,7 +137,7 @@ const Payment = () => {
                                 </div>
                                 </div>
                                 <div className="right-payments-body">
-                                    <button className="secondary-cta">View Job</button>
+                                   <button className="secondary-cta"onClick={()=>router.push("/checkout")} >View Job</button>
                                 </div>
                             </div>
                             <div className="my-payments-body">
@@ -152,7 +152,7 @@ const Payment = () => {
                                 </div>
                                 </div>
                                 <div className="right-payments-body">
-                                    <button className="secondary-cta">View Job</button>
+                                   <button className="secondary-cta"onClick={()=>router.push("/checkout")} >View Job</button>
                                 </div>
                             </div>
                             <div className="my-payments-body">
@@ -167,7 +167,7 @@ const Payment = () => {
                                 </div>
                                 </div>
                                 <div className="right-payments-body">
-                                    <button className="secondary-cta">View Job</button>
+                                   <button className="secondary-cta"onClick={()=>router.push("/checkout")} >View Job</button>
                                 </div>
                             </div>
                             </div>
@@ -190,7 +190,7 @@ const Payment = () => {
                                 </div>
                                 </div>
                                 <div className="right-payments-body">
-                                    <button className="secondary-cta">View Job</button>
+                                   <button className="secondary-cta"onClick={()=>router.push("/checkout")} >View Job</button>
                                     <button className="primary-cta" onClick={()=>router.push("/checkout")}><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@ const Payment = () => {
                                 </div>
                                 </div>
                                 <div className="right-payments-body">
-                                    <button className="secondary-cta">View Job</button>
+                                   <button className="secondary-cta"onClick={()=>router.push("/checkout")} >View Job</button>
                                     <button className="primary-cta" onClick={()=>router.push("/checkout")}><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
                                 </div>
                             </div>
@@ -222,7 +222,7 @@ const Payment = () => {
                                 </div>
                                 </div>
                                 <div className="right-payments-body">
-                                    <button className="secondary-cta">View Job</button>
+                                    <button className="secondary-cta"onClick={()=>router.push("/checkout")} >View Job</button>
                                     <button className="primary-cta" onClick={()=>router.push("/checkout")} ><img className="pay" src="images/modal/notice-right-arrow.svg" alt=""/> Pay Now</button>
                                 </div>
                             </div>

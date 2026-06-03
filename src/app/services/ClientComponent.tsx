@@ -68,8 +68,8 @@ useEffect(() => {
 
                           <input type="text"
                             placeholder="Search"
-                            value={searchServices}
-                            onChange={(e) => setSearchServices(e.target.value)}
+                            // value={searchServices}
+                            // onChange={(e) => setSearchServices(e.target.value)}
                             className="top-srch" />
 
                       <select name="" id="">
