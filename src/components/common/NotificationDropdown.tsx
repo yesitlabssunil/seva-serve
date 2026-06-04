@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 
 const NotificationDropdown = () => {
@@ -6,16 +7,43 @@ const NotificationDropdown = () => {
 <div
   className="dropdown-toggle"
   role="button"
+=======
+import React, { useState } from 'react'
+import {notifications} from '../../json/notification.json'
+
+const NotificationDropdown = () => {
+
+
+  const [activeTab, setActiveTab] = useState<string>("All");
+  const [notificationsData, setNotificationsData] = useState<any>(notifications);
+  const tabs = ["All", "Offers", "Alerts"];
+
+
+  const notification=notificationsData?.[activeTab] || [];
+
+  return (
+    <div className="icon bell-icon position-relative dropdown">
+    <button
+  type="button"
+  className="dropdown-toggle border-0 bg-transparent p-0"
+>>>>>>> recovery-branch
   data-bs-toggle="dropdown"
   aria-expanded="false"
   data-bs-auto-close="outside"
 >
   <img
     src="images/header/bell-icon.svg"
+<<<<<<< HEAD
     alt="Notification"
     className="logo"
   />
 </div>
+=======
+    alt="Logo"
+    className="logo"
+  />
+</button>
+>>>>>>> recovery-branch
     <span
       className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
       style={{backgroundColor: "#991318"}}
@@ -27,6 +55,7 @@ const NotificationDropdown = () => {
       <div className="notification-list">
         <h1>Notifications</h1>
         <div className="top-fltr">
+<<<<<<< HEAD
           <button type="button" className="active">All</button>
           <button type="button">Offers</button>
           <button type="button">Alerts</button>
@@ -40,6 +69,35 @@ const NotificationDropdown = () => {
             <span>Just Now</span>
           </div>
           <div className="notification-item">
+=======
+      
+          {tabs.map((tab, index) => (
+            <button
+              key={index}
+              type="button"
+              className={activeTab === tab ? "active" : ""}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+
+        </div>
+        <div className="notification-in" >
+       {notification.map((notif: any) => (
+
+          <div className="notification-item" key={notif.id}>
+            <div className="notification-data">
+              <h3>{notif.title}</h3>
+              <p>{notif.message}</p>
+            </div>
+            <span>{notif.time}</span>
+          </div>
+           ))}
+           </div>
+         {/* <div className="notification-in">
+           <div className="notification-item">
+>>>>>>> recovery-branch
             <div className="notification-data">
               <h3>Contractor suggested a new time</h3>
               <p>
@@ -77,8 +135,14 @@ const NotificationDropdown = () => {
               </p>
             </div>
             <span>Yesterday</span>
+<<<<<<< HEAD
           </div>
         </div>
+=======
+          </div> 
+          </div> */}
+        
+>>>>>>> recovery-branch
       </div>
     </div>
   </div>

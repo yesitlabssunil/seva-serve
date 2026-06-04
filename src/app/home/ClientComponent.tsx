@@ -133,9 +133,15 @@ const ClientComponent = () => {
               </div>
               <div className="upcoming-slider">
 
+<<<<<<< HEAD
               { [0,1,2,3,4,5].map(()=>(
 
               <div className="upcoming-my-slide">
+=======
+              { [0,1,2,3,4,5].map((_, index)=>(
+
+              <div className="upcoming-my-slide" key={index}>
+>>>>>>> recovery-branch
                   <div className="upcoming-img">
                     <img src="images/home/home-slider/1.svg" alt="" />
                   </div>

@@ -14,15 +14,22 @@
     "@types/bootstrap": "^5.2.10",
     "axios": "^1.16.1",
     "bootstrap": "^5.3.8",
+<<<<<<< HEAD
     "formik": "^2.4.9",
+=======
+>>>>>>> recovery-branch
     "next": "16.2.6",
     "react": "19.2.4",
     "react-datepicker": "^9.1.0",
     "react-day-picker": "^10.0.1",
     "react-dom": "19.2.4",
     "react-hot-toast": "^2.6.0",
+<<<<<<< HEAD
     "react-redux": "^9.3.0",
     "yup": "^1.7.1"
+=======
+    "react-redux": "^9.3.0"
+>>>>>>> recovery-branch
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

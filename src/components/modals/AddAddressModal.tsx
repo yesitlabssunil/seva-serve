@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -125,6 +126,54 @@ const AddAddressModal = () => {
     }
   }, [isAutoEnabled]);
 
+=======
+import React, {useState} from "react";
+
+const AddAddressModal = () => {
+  const [selectedType, setSelectedType] = useState("Home");
+
+  const [formData, setFormData] = useState({
+    house: "",
+    floor: "",
+    area: "",
+    landmark: "",
+  });
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
+
+ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  const finalData = {
+    addressType: selectedType,
+    ...formData,
+  };
+
+  console.log(finalData);
+
+  setFormData({
+    house: "",
+    floor: "",
+    area: "",
+    landmark: "",
+  });
+
+  setSelectedType("Home");
+
+  const modal = document.getElementById("add-address-popup");
+
+  if (modal) {
+    const bootstrapModal = (window as any).bootstrap?.Modal.getInstance(modal);
+
+    bootstrapModal?.hide();
+  }
+};
+>>>>>>> recovery-branch
 
 
   return (
@@ -153,7 +202,11 @@ const AddAddressModal = () => {
 
               <h1>Add New Address</h1>
 
+<<<<<<< HEAD
               <form onSubmit={formik.handleSubmit}>
+=======
+              <form onSubmit={handleSubmit}>
+>>>>>>> recovery-branch
 
                 <div className="your-location-top">
 
@@ -165,6 +218,7 @@ const AddAddressModal = () => {
                         src="images/saved-addresses/location.svg"
                         alt=""
                       />
+<<<<<<< HEAD
                       <div className="use-location-data">
                         <h5>Use My Current Location</h5>
                         <p>{isAutoEnabled ? "Auto-detection is ON" : "Enable for automatic location fetch"}</p>
@@ -179,6 +233,24 @@ const AddAddressModal = () => {
                         }}
                       >
                         {loading ? "..." : (isAutoEnabled ? "Disable" : "Enable")}
+=======
+
+                      <div className="use-location-data">
+
+                        <h5>Use My Current Location</h5>
+
+                        <p>
+                          Enable your current location for better services
+                        </p>
+
+                      </div>
+
+                      <button
+                        type="button"
+                        className="reject-btn"
+                      >
+                        Enable
+>>>>>>> recovery-branch
                       </button>
 
                     </div>
@@ -195,6 +267,7 @@ const AddAddressModal = () => {
 
                   <div className="address-tags">
 
+<<<<<<< HEAD
                     {["Home", "Office", "Other"].map((type) => (
                       <button
                         key={type}
@@ -214,6 +287,48 @@ const AddAddressModal = () => {
                       value={formData.house}
                       onChange={handleChange}
                       required
+=======
+                    <button
+                      type="button"
+                      className={
+                        selectedType === "Home" ? "active" : ""
+                      }
+
+                      onClick={() => setSelectedType("Home")}
+                    >
+                      Home
+                    </button>
+
+                    <button type="button"
+                    className={
+                      selectedType === "Office" ? "active" : ""
+                    }
+                    onClick={() => setSelectedType("Office")}
+                    >
+                      Office
+                    </button>
+
+                    <button type="button" 
+                    className={
+                      selectedType === "Other" ? "active" : ""
+                    }
+
+                    onClick={() => setSelectedType("Other")}
+                    >
+                      Other
+                    </button>
+
+                  </div>
+
+                  <div className="addres-form">
+
+                    <input
+                      type="text"
+                      name="house"
+                      placeholder="Flat/ House no/ Building name"
+                      value={formData.house}
+                      onChange={handleChange}
+>>>>>>> recovery-branch
                     />
 
                     <input
@@ -227,10 +342,16 @@ const AddAddressModal = () => {
                     <input
                       type="text"
                       name="area"
+<<<<<<< HEAD
                       placeholder="Area/ Sector/ Locality *"
                       value={formData.area}
                       onChange={handleChange}
                       required
+=======
+                      placeholder="Area/ Sector/ Locality"
+                      value={formData.area}
+                      onChange={handleChange}
+>>>>>>> recovery-branch
                     />
 
                     <input
@@ -241,6 +362,7 @@ const AddAddressModal = () => {
                       onChange={handleChange}
                     />
 
+<<<<<<< HEAD
                     <button type="submit" className="primary-cta">
                       Save Address
                     </button>
@@ -298,6 +420,15 @@ const AddAddressModal = () => {
                     <button type="submit" className="primary-cta mt-2 w-100">
                       Save Address
                     </button>
+=======
+                    <button
+                      type="submit"
+                      className="primary-cta"
+                    >
+                      Save Address
+                    </button>
+
+>>>>>>> recovery-branch
                   </div>
 
                 </div>

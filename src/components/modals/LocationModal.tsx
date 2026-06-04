@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 
@@ -125,6 +126,12 @@ const LocationModal = () => {
 
 
 
+=======
+
+import React from 'react'
+
+const LocationModal = () => {
+>>>>>>> recovery-branch
   return (
     <div
       className="modal fade"
@@ -145,7 +152,11 @@ const LocationModal = () => {
           <div className="modal-body">
             <div className="select-date-time-wrp">
               <h1>Your Location</h1>
+<<<<<<< HEAD
               {/* <form action="">
+=======
+              <form action="">
+>>>>>>> recovery-branch
                 <div className="your-location-top">
                   <input
                     type="text"
@@ -208,6 +219,7 @@ const LocationModal = () => {
                     </label>
                   </div>
                 </div>
+<<<<<<< HEAD
               </form> */}
 
 
@@ -317,6 +329,8 @@ const LocationModal = () => {
                     </label>
                   </div>
                 </div>
+=======
+>>>>>>> recovery-branch
               </form>
             </div>
           </div>

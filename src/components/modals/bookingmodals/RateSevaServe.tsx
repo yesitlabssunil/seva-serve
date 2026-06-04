@@ -3,9 +3,14 @@ import toast from 'react-hot-toast';
 
 
 interface RateSevaServeProps {
+<<<<<<< HEAD
   feedback: string;
 }
 
+=======
+  feedback?: string;
+}
+>>>>>>> recovery-branch
 const RateSevaServe = ({ feedback }: RateSevaServeProps) => {
 
   const handleCopy =  async (
@@ -13,7 +18,11 @@ const RateSevaServe = ({ feedback }: RateSevaServeProps) => {
       ) => {
         e.preventDefault();
         try {
+<<<<<<< HEAD
           await navigator.clipboard.writeText(feedback);
+=======
+          await navigator.clipboard.writeText(feedback as string);
+>>>>>>> recovery-branch
           toast.success("Feedback copied!");
         } catch (error) {
           toast.error("Failed to copy feedback");

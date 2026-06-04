@@ -126,9 +126,13 @@ export default function RootLayout({
             <DeleteAccountModal />
             <DeleteMyAccountModal />
             <NewServiceRejectionModal />
+<<<<<<< HEAD
             <RateSevaServe 
             feedback={"abcdefghijklmnopqrstuvwxyz"}
             />
+=======
+            <RateSevaServe />
+>>>>>>> recovery-branch
 
             
             </QueryProvider>

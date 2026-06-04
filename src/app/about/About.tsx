@@ -15,7 +15,11 @@ const About = () => {
               <div className="col-lg-12">
                 <div className="browse-wrp">
                   <div className="browse-ctg-head my-con-head">
+<<<<<<< HEAD
                     <h2 className="sub-cate-page"> <a href="#"><img src="images/home/left-arrow.svg" alt=""/></a>About SevaServe </h2>
+=======
+                    <h2 className="sub-cate-page"> <Link href="/home"><img src="images/home/left-arrow.svg" alt=""/></Link>About SevaServe </h2>
+>>>>>>> recovery-branch
                    
                   </div>
                   <div className="about-us-body"> 

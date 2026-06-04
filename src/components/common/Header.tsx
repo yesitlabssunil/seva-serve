@@ -2,6 +2,10 @@
 
 import React, { useState, useEffect } from 'react'
 import SidebarMenu from '../sidebar/SidebarMenu';
+<<<<<<< HEAD
+=======
+// import "js-circle-progress";
+>>>>>>> recovery-branch
 import Link from "next/link";
 import NotificationDropdown from './NotificationDropdown';
 import SevaServeAgentPanel from './SevaServeAgentPanel';
@@ -111,11 +115,21 @@ const Header = () => {
                   <div className="top-ims-mrg">
                     <div className="top-img-pro">
                       <div className="progress-wrp">
+<<<<<<< HEAD
                         {/* <circle-progress className="my-progress"
                           max="100"
                           value="60"
                           text-format="percent"
                         ></circle-progress> */}
+=======
+                       {/* <circle-progress
+                            className="my-progress"
+                            max={100}
+                            value={60}
+                            text-format="percent"
+                          ></circle-progress> */}
+                          
+>>>>>>> recovery-branch
                         <img src="images/inner-page/user-profile.svg" alt="" />
                       </div>
                       <div className="roger-number">

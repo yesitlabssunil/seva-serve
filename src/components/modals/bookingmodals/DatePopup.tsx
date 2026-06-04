@@ -139,7 +139,11 @@ useEffect(() => {
                 <form  >
                   <div className="select-date-time-inner" >
                     <div className="select-date-in" >
+<<<<<<< HEAD
                     <div id="datepicker-2"></div>
+=======
+                    <div id="datepicker-2" style={{ width: "100%" }}></div>
+>>>>>>> recovery-branch
                         
                     </div>
 

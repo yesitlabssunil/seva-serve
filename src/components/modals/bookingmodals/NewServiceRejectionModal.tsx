@@ -14,7 +14,13 @@ const NewServiceRejectionModal = () => {
   //   }
   // }
 
+<<<<<<< HEAD
 const handleServiceRejection = (e: React.MouseEvent<HTMLAnchorElement>) => {
+=======
+const handleServiceRejection = (
+  e: React.MouseEvent<HTMLAnchorElement>
+) => {
+>>>>>>> recovery-branch
   e.preventDefault();
 
   if (!reason || reason.trim() === "") {
@@ -22,6 +28,7 @@ const handleServiceRejection = (e: React.MouseEvent<HTMLAnchorElement>) => {
     return;
   }
 
+<<<<<<< HEAD
   const modalEl = document.getElementById("servicesRejected");
 
   if (!modalEl) {
@@ -38,6 +45,30 @@ const handleServiceRejection = (e: React.MouseEvent<HTMLAnchorElement>) => {
    console.log("modalInstance:", modalInstance);
 
   modalInstance?.hide();
+=======
+  const bootstrap = (window as any).bootstrap;
+
+  // Close current modal
+  const rejectionModal = document.getElementById("servicesRejection");
+
+  if (rejectionModal) {
+    const rejectionInstance =
+      bootstrap.Modal.getInstance(rejectionModal) ||
+      bootstrap.Modal.getOrCreateInstance(rejectionModal);
+
+    rejectionInstance.hide();
+  }
+
+  // Open confirmation modal
+  const confirmationModal = document.getElementById("servicesRejected");
+
+  if (confirmationModal) {
+    const confirmationInstance =
+      bootstrap.Modal.getOrCreateInstance(confirmationModal);
+
+    confirmationInstance.show();
+  }
+>>>>>>> recovery-branch
 
   setReason("");
 };

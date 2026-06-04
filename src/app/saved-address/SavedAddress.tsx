@@ -1,6 +1,10 @@
 import DeleteAddressModal from '@/components/modals/Address/DeleteAddressModal'
 import EditAddressModal from '@/components/modals/Address/EditAddressModal'
 import NewAddressModal from '@/components/modals/Address/NewAddressModal'
+<<<<<<< HEAD
+=======
+import Link from 'next/link'
+>>>>>>> recovery-branch
 import React from 'react'
 
 const SavedAddress = () => {
@@ -16,7 +20,11 @@ const SavedAddress = () => {
                 <div className="browse-wrp">
                   <div className="browse-ctg-head my-con-head">
                     <h2 className="sub-cate-page">
+<<<<<<< HEAD
                       <a href="#"><img src="images/home/left-arrow.svg" alt=""/></a>
+=======
+                      <Link href="/home"><img src="images/home/left-arrow.svg" alt=""/></Link>
+>>>>>>> recovery-branch
                       Saved Address
                     </h2>
                     <a type="button" data-bs-target="#add-address-popup" data-bs-toggle="modal" className="primary-cta"><i

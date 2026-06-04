@@ -1,5 +1,10 @@
 "use client";
 
+<<<<<<< HEAD
+=======
+
+import { useRouter } from 'next/navigation';
+>>>>>>> recovery-branch
 import React, { useState } from 'react';
 
 const ChoosePlan = () => {
@@ -35,6 +40,12 @@ const ChoosePlan = () => {
     },
   ];
 
+<<<<<<< HEAD
+=======
+
+  const router =useRouter()
+  
+>>>>>>> recovery-branch
   const couponCode = "SEVA200FF";
 
   const [selectedPlan, setSelectedPlan] = useState<number | null>(2);
@@ -43,6 +54,10 @@ const ChoosePlan = () => {
 
   const handleSubscribe = (price: string) => {
     console.log("Selected Price:", price);
+<<<<<<< HEAD
+=======
+    router.push('/payment');
+>>>>>>> recovery-branch
   }
 
   // COPY COUPON
